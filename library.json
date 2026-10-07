@@ -1148,6 +1148,48 @@
         "dynamic": "user-confirmed",
         "confirmedAt": "2026-10-06"
       }
+    },
+    {
+      "id": "chapter-transition-dark-banner",
+      "name": "章节过渡／黑报纸撕纸标题",
+      "family": "chapter-transition",
+      "layoutPattern": "dark-newspaper-number-and-horizontal-torn-title",
+      "semanticTypes": ["chapter-transition", "section-title", "video-structure-transition"],
+      "avoidFor": ["body-copy", "ordered-process", "top-progress-bar", "full-video-edit"],
+      "status": "validated",
+      "composition": "ChapterTransitionDarkBanner",
+      "preset": "presets/chapter-transition-dark-banner.json",
+      "styleframe": "previews/chapter-transition-dark-banner-styleframe-v1.png",
+      "preview": "previews/chapter-transition-dark-banner-dynamic-v1.mp4",
+      "rules": "template-rules/chapter-transition/TEMPLATE.md",
+      "layout": "template-rules/chapter-transition/dark-banner-layout.json",
+      "supports": {
+        "editable": ["sectionNumber", "title"],
+        "validatedVariants": ["dark-newspaper-torn-banner"],
+        "candidateVariants": []
+      },
+      "review": {"staticDesign": "user-confirmed", "dynamic": "user-confirmed", "confirmedAt": "2026-10-07"}
+    },
+    {
+      "id": "chapter-transition-split-newspaper",
+      "name": "章节过渡／黑白拼接旧报纸",
+      "family": "chapter-transition",
+      "layoutPattern": "split-newspaper-number-slide-and-title-reveal",
+      "semanticTypes": ["chapter-transition", "section-title", "video-structure-transition"],
+      "avoidFor": ["body-copy", "ordered-process", "top-progress-bar", "full-video-edit"],
+      "status": "validated",
+      "composition": "ChapterTransitionSplitNewspaper",
+      "preset": "presets/chapter-transition-split-newspaper.json",
+      "styleframe": "previews/chapter-transition-split-newspaper-styleframe-v1.png",
+      "preview": "previews/chapter-transition-split-newspaper-dynamic-v1.mp4",
+      "rules": "template-rules/chapter-transition/TEMPLATE.md",
+      "layout": "template-rules/chapter-transition/split-newspaper-layout.json",
+      "supports": {
+        "editable": ["sectionNumber", "title"],
+        "validatedVariants": ["split-newspaper-direct-reveal"],
+        "candidateVariants": []
+      },
+      "review": {"staticDesign": "user-confirmed", "dynamic": "user-confirmed", "confirmedAt": "2026-10-07"}
     }
   ],
   "schemaVersion": 2,

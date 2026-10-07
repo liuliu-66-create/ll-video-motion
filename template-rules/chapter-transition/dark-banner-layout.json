@@ -1,0 +1,11 @@
+{
+  "id": "chapter-transition-dark-banner",
+  "status": "validated",
+  "canvas": {"width": 1920, "height": 1080, "fps": 30, "durationInFrames": 150},
+  "confirmedAt": "2026-10-07",
+  "regions": {
+    "sectionNumber": {"left": 116, "top": 96, "width": 665, "height": 875},
+    "titleStrip": {"left": 840, "top": 395, "width": 1350, "height": 267}
+  },
+  "constraints": {"sectionNumberFormat": "two-digits-recommended", "titleMaxChars": 14, "progressBar": false}
+}

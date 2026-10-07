@@ -32,9 +32,114 @@ import {StoryboardWorkOrder} from './templates/StoryboardWorkOrder';
 import {FinalQualityStampBoard} from './templates/FinalQualityStampBoard';
 import {ActionPrerequisiteCard} from './templates/ActionPrerequisiteCard';
 import {multiPoint03} from './presets';
+import {ChapterTransitionCandidate} from './candidates/ChapterTransitionCandidate';
+import {ChapterTransitionReferenceStill} from './candidates/ChapterTransitionReferenceStill';
+import {
+  ChapterTransitionSplitReferenceMotion,
+  ChapterTransitionSplitReferenceStill,
+} from './candidates/ChapterTransitionSplitReferenceStill';
 
 export const Root: React.FC = () => (
   <>
+    <Composition
+      id="ChapterTransitionSplitReferenceStill"
+      component={ChapterTransitionSplitReferenceStill}
+      durationInFrames={1}
+      fps={30}
+      width={1920}
+      height={1080}
+    />
+    <Composition
+      id="ChapterTransitionSplitReferenceMotion"
+      component={ChapterTransitionSplitReferenceMotion}
+      durationInFrames={150}
+      fps={30}
+      width={1920}
+      height={1080}
+      defaultProps={{sectionNumber: '01', title: '工具使用教程'}}
+    />
+    <Composition
+      id="ChapterTransitionDarkBanner"
+      component={ChapterTransitionReferenceStill}
+      durationInFrames={150}
+      fps={30}
+      width={1920}
+      height={1080}
+      defaultProps={{sectionNumber: '01', title: '工具使用教程', animated: true}}
+    />
+    <Composition
+      id="ChapterTransitionSplitNewspaper"
+      component={ChapterTransitionSplitReferenceMotion}
+      durationInFrames={150}
+      fps={30}
+      width={1920}
+      height={1080}
+      defaultProps={{sectionNumber: '01', title: '工具使用教程'}}
+    />
+    <Composition
+      id="ChapterTransitionReferenceStill"
+      component={ChapterTransitionReferenceStill}
+      durationInFrames={1}
+      fps={30}
+      width={1920}
+      height={1080}
+      defaultProps={{
+        sectionNumber: '01',
+        title: '工具使用教程',
+      }}
+    />
+    <Composition
+      id="ChapterTransitionReferenceMotion"
+      component={ChapterTransitionReferenceStill}
+      durationInFrames={150}
+      fps={30}
+      width={1920}
+      height={1080}
+      defaultProps={{
+        sectionNumber: '01',
+        title: '工具使用教程',
+        animated: true,
+      }}
+    />
+    <Composition
+      id="ChapterTransitionDark"
+      component={ChapterTransitionCandidate}
+      durationInFrames={150}
+      fps={30}
+      width={1920}
+      height={1080}
+      defaultProps={{
+        sectionNumber: '01',
+        title: '工具使用教程',
+        variant: 'dark',
+      }}
+    />
+    <Composition
+      id="ChapterTransitionLight"
+      component={ChapterTransitionCandidate}
+      durationInFrames={150}
+      fps={30}
+      width={1920}
+      height={1080}
+      defaultProps={{
+        sectionNumber: '01',
+        title: '工具使用教程',
+        variant: 'light',
+      }}
+    />
+    <Composition
+      id="ChapterTransitionSplit"
+      component={ChapterTransitionCandidate}
+      durationInFrames={150}
+      fps={30}
+      width={1920}
+      height={1080}
+      defaultProps={{
+        sectionNumber: '01',
+        title: '工具使用教程',
+        variant: 'split',
+      }}
+    />
     <Composition
       id="ActionPrerequisiteCard"
       component={ActionPrerequisiteCard}

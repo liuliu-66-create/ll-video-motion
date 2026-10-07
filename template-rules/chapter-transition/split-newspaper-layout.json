@@ -1,0 +1,13 @@
+{
+  "id": "chapter-transition-split-newspaper",
+  "status": "validated",
+  "canvas": {"width": 1920, "height": 1080, "fps": 30, "durationInFrames": 150},
+  "confirmedAt": "2026-10-07",
+  "regions": {
+    "darkNewspaper": {"left": 0, "top": 0, "width": 815, "height": 1080},
+    "lightNewspaper": {"left": 785, "top": 0, "width": 1165, "height": 1080},
+    "sectionNumber": {"left": 121, "top": 138, "width": 632, "height": 924},
+    "title": {"left": 867, "top": 402, "width": 1033, "height": 264}
+  },
+  "constraints": {"sectionNumberFormat": "two-digits-recommended", "titleMaxChars": 14, "progressBar": false}
+}

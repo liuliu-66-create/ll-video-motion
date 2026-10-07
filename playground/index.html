@@ -664,6 +664,7 @@
 
   <script>
     const categories = [
+      {id: "transition", name: "章节过渡"},
       {id: "list", name: "列举与归纳"},
       {id: "process", name: "流程与阶段"},
       {id: "compare", name: "对比与变化"},
@@ -675,6 +676,9 @@
     ];
 
     const styles = [
+      {id:"chapter-transition-dark-banner", category:"transition", choice:"样式 A", name:"黑报纸撕纸标题", code:"chapter-transition / dark-banner", src:"samples/chapter-transition-dark-banner-dynamic-v1.mp4", poster:"posters/chapter-transition-dark-banner-styleframe-v1.png", description:"黑色旧报纸铺满画面，左侧大号章节数字，右侧用横向撕纸承载标题。", bestFor:"需要更强海报感、标题卡感的章节切换", avoidFor:"正文解释、顶部目录进度条、完整成片", editable:"章节编号、章节标题"},
+      {id:"chapter-transition-split-newspaper", category:"transition", choice:"样式 B", name:"黑白拼接旧报纸", code:"chapter-transition / split-newspaper", src:"samples/chapter-transition-split-newspaper-dynamic-v1.mp4", poster:"posters/chapter-transition-split-newspaper-styleframe-v1.png", description:"左侧黑报纸、右侧米白旧报纸纵向拼接；数字从左滑入，标题随后从左向右露出。", bestFor:"需要左右分区清楚、切换直接的章节过渡", avoidFor:"正文解释、顶部目录进度条、完整成片", editable:"章节编号、章节标题"},
+
       {id:"multi-torn", category:"list", name:"撕纸清单", code:"multi-point-list / torn-list", src:"samples/multi-point-03-torn-v1.mp4", poster:"posters/multi-point-03-torn-v1.jpg", description:"用撕纸条逐项出现，层级直接，适合口播中的并列重点。", bestFor:"2—6 个同级观点、功能或结果", avoidFor:"严格步骤、时间节点、层级关系", editable:"文字、图标、项目数量、时长"},
       {id:"multi-staggered", category:"list", name:"错落便签", code:"multi-point-list / staggered-memo", src:"samples/multi-point-staggered-memo-v1.mp4", poster:"posters/multi-point-staggered-memo-v1.jpg", description:"多张便签错落展开，画面更松弛，适合有手账感的并列信息。", bestFor:"3—5 个并列想法、心得、提醒", avoidFor:"需要精确对齐的数据或步骤", editable:"文字、项目数量、时长"},
       {id:"multi-stamp", category:"list", name:"印章标签墙", code:"multi-point-list / stamp-label-wall", src:"samples/multi-point-stamp-label-03-v2.mp4", poster:"posters/multi-point-stamp-label-03-v2.jpg", description:"短标签像印章一样依次盖出，节奏紧凑，强调关键词。", bestFor:"3—5 个短关键词、标签或特征", avoidFor:"长句、复杂解释", editable:"关键词、数量、时长"},
@@ -728,9 +732,19 @@
     const compareHelpEl = document.querySelector("#compare-help");
     const compareGrid = document.querySelector("#compare-grid");
 
-    let activeId = styles[0].id;
-    let visibleStyles = [...styles];
-    let expandedCategory = null;
+    const params = new URLSearchParams(window.location.search);
+    const requestedCategory = params.get("category");
+    const filteredCategory = categories.some((category) => category.id === requestedCategory) ? requestedCategory : null;
+    const baseStyles = filteredCategory ? styles.filter((style) => style.category === filteredCategory) : styles;
+
+    let activeId = baseStyles[0]?.id ?? styles[0].id;
+    let visibleStyles = [...baseStyles];
+    let expandedCategory = filteredCategory;
+
+    if (filteredCategory === "transition") {
+      document.querySelector(".brand h1").textContent = "选择过渡动画样式";
+      search.placeholder = "搜索过渡样式";
+    }
 
     const categoryName = (id) => categories.find((category) => category.id === id)?.name ?? id;
 
@@ -746,6 +760,7 @@
       }
 
       categories.forEach((category) => {
+        if (filteredCategory && category.id !== filteredCategory) return;
         const items = visibleStyles.filter((style) => style.category === category.id);
         const isSearching = Boolean(search.value.trim());
         if (items.length === 0 && isSearching) return;
@@ -788,7 +803,7 @@
           button.className = "nav-item";
           button.dataset.id = style.id;
           button.setAttribute("aria-selected", String(style.id === activeId));
-          button.innerHTML = `<span class="nav-name">${style.name}</span>`;
+          button.innerHTML = `<span class="nav-name">${style.choice ? `${style.choice}｜` : ""}${style.name}</span>`;
           button.addEventListener("click", () => selectStyle(style.id, true));
           itemList.appendChild(button);
         });
@@ -814,7 +829,7 @@
         button.className = "compare-card";
         button.dataset.id = style.id;
         button.setAttribute("aria-selected", String(style.id === activeId));
-        button.innerHTML = `<img src="${style.poster}" alt="${style.name}样片缩略图" loading="lazy"><span>${style.name}</span>`;
+        button.innerHTML = `<img src="${style.poster}" alt="${style.name}样片缩略图" loading="lazy"><span>${style.choice ? `${style.choice}｜` : ""}${style.name}</span>`;
         button.addEventListener("click", () => selectStyle(style.id, true));
         compareGrid.appendChild(button);
       });
@@ -825,8 +840,8 @@
       if (!style) return;
 
       activeId = id;
-      styleNameEl.textContent = style.name;
-      categoryLabelEl.textContent = categoryName(style.category);
+      styleNameEl.textContent = `${style.choice ? `${style.choice}｜` : ""}${style.name}`;
+      categoryLabelEl.textContent = style.choice ? `${categoryName(style.category)} · 看完后回复“${style.choice}”` : categoryName(style.category);
       descriptionEl.textContent = style.description;
       bestForEl.textContent = style.bestFor;
 
@@ -879,7 +894,7 @@
 
     search.addEventListener("input", (event) => {
       const query = event.target.value.trim().toLowerCase();
-      visibleStyles = styles.filter((style) => {
+      visibleStyles = baseStyles.filter((style) => {
         const haystack = [style.name, categoryName(style.category), style.description, style.bestFor].join(" ").toLowerCase();
         return haystack.includes(query);
       });
@@ -894,7 +909,7 @@
 
     document.addEventListener("keydown", (event) => {
       if (event.target === search) return;
-      const sequence = visibleStyles.length ? visibleStyles : styles;
+      const sequence = visibleStyles.length ? visibleStyles : baseStyles;
       const currentIndex = sequence.findIndex((item) => item.id === activeId);
       if (event.key === "ArrowDown" || event.key === "ArrowRight") {
         event.preventDefault();
