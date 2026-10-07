@@ -1,6 +1,6 @@
 interface:
   display_name: "六六视频动效"
-  short_description: "根据中文内容选择已验证模板并在本地生成可修改的短视频动效"
-  default_prompt: "使用 $ll-video-motion 把这段中文内容生成一个合适的视频动效。"
+  short_description: "先确认动效拆分方案，再生成一个或多个本地短视频动效"
+  default_prompt: "使用 $ll-video-motion 分析这段中文内容应制作几个动效，先给我确认方案，再开始生成。"
 policy:
   allow_implicit_invocation: true
