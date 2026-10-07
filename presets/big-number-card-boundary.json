@@ -1,0 +1,14 @@
+{
+  "headline": "同样预算下，核心转化率提升了多少？",
+  "context": "同一预算、同一投放周期，对比优化前后两组数据，结果来自 30 天 A/B 测试。",
+  "eyebrow": "30 天 A/B 测试结果",
+  "prefix": "+",
+  "value": "128.6",
+  "suffix": "%",
+  "label": "核心转化率提升",
+  "beforeLabel": "优化前",
+  "beforeValue": "4.2%",
+  "afterLabel": "优化后",
+  "afterValue": "9.6%",
+  "footnote": "样本周期：30 天 · 同一预算口径"
+}

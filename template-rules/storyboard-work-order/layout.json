@@ -1,0 +1,28 @@
+{
+  "id": "storyboard-work-order",
+  "status": "validated",
+  "canvas": {"width": 1920, "height": 1080, "fps": 30},
+  "confirmedAt": "2026-10-06",
+  "regions": {
+    "headline": {"left": 100, "top": 68, "width": 1410},
+    "workOrder": {"left": 110, "top": 207, "width": 1705, "height": 730},
+    "shotMeta": {"left": 170, "top": 242, "width": 509, "height": 53},
+    "image": {"left": 172, "top": 325, "width": 610, "height": 470},
+    "details": {"left": 845, "top": 319, "width": 890, "height": 510}
+  },
+  "constraints": {
+    "shotCount": 1,
+    "materialCount": {"min": 2, "max": 4},
+    "headlineMaxChars": 22,
+    "subtitleMaxChars": 24,
+    "visualMaxChars": 26,
+    "materialLabelMaxChars": 5,
+    "tornPaperScope": ["workOrderBacking", "timecode", "primaryMaterial"],
+    "plainTextScope": ["headline", "fieldLabels", "fieldContent", "shotNumber"]
+  },
+  "previews": {
+    "styleframe": "previews/storyboard-work-order-candidate-v2.png",
+    "video": "previews/storyboard-work-order-dynamic-v2.mp4",
+    "boundary": "qa/storyboard-work-order-boundary-v1.png"
+  }
+}

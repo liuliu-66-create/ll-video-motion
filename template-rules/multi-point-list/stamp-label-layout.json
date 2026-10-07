@@ -1,0 +1,23 @@
+{
+  "variant": "stamp-label-wall",
+  "canvas": {"width": 1920, "height": 1080},
+  "subtitleSafeZone": {"top": 860, "bottom": 1080, "rule": "no template content may enter this area"},
+  "sourceAsset": "public/assets/multi-point-stamp-label-sprites-v1.png",
+  "supports": {"itemCount": [2, 3, 4, 5, 6]},
+  "editable": ["items[].text"],
+  "visibleSourceHeight": 540,
+  "lowerEdgeRule": "hide the complete icon pad; retain only a shallow irregular torn lower edge on the main label",
+  "anchorsInCell": {
+    "numberCentersByVariant": [[340, 215], [336, 221], [334, 225]],
+    "textCenter": [341, 407]
+  },
+  "itemCountLayouts": {
+    "2": "two large centered columns",
+    "3": "three large equal columns",
+    "4": "two columns by two rows",
+    "5": "three above and two below",
+    "6": "three columns by two rows"
+  },
+  "animation": "paper cluster enters; number stamps in; keyword follows",
+  "textRule": "center-on-main-label; shrink-only; never-shift-center"
+}

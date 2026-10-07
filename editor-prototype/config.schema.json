@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Concept Explainer Topdown Config",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "templateId",
+    "coreTitle",
+    "definition",
+    "leftPrefix",
+    "leftHighlight",
+    "leftSuffix",
+    "middleText",
+    "rightText",
+    "durationSeconds"
+  ],
+  "properties": {
+    "templateId": {"const": "concept-explainer-topdown"},
+    "coreTitle": {"type": "string", "minLength": 1, "maxLength": 18},
+    "definition": {"type": "string", "minLength": 1, "maxLength": 30},
+    "leftPrefix": {"type": "string", "maxLength": 8},
+    "leftHighlight": {"type": "string", "minLength": 1, "maxLength": 8},
+    "leftSuffix": {"type": "string", "maxLength": 8},
+    "middleText": {"type": "string", "minLength": 1, "maxLength": 14},
+    "rightText": {"type": "string", "minLength": 1, "maxLength": 14},
+    "durationSeconds": {"type": "integer", "minimum": 4, "maximum": 10}
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "canvas": {"width": 1920, "height": 1080},
+  "question": {
+    "categoryLabel": {"center": [960, 104], "carrier": "none"},
+    "titleSafeArea": [320, 140, 1280, 95],
+    "carrier": "none",
+    "underline": [830, 250, 260, 7]
+  },
+  "fork": {
+    "origin": [960, 278],
+    "connectorCenter": [960, 366],
+    "leftEndpoint": [548, 480],
+    "rightEndpoint": [1372, 480]
+  },
+  "choices": {
+    "left": {
+      "column": [245, 392, 430, 560],
+      "artCircle": [285, 392, 350, 350],
+      "keywordPaper": [245, 768, 430, 124],
+      "descriptionSafeArea": [245, 905, 430, 60]
+    },
+    "right": {
+      "column": [1245, 392, 430, 560],
+      "artCircle": [1285, 392, 350, 350],
+      "keywordPaper": [1245, 768, 430, 124],
+      "descriptionSafeArea": [1245, 905, 430, 60]
+    }
+  },
+  "footer": {
+    "safeArea": [390, 970, 1140, 60],
+    "carrier": "none",
+    "markerDiameter": 54
+  },
+  "carrierRule": {
+    "plainText": ["question", "choiceDescription", "footer"],
+    "highlightCarrier": ["choiceKeyword"],
+    "maxTornPaperCount": 2
+  },
+  "textRule": "plain text stays carrier-free; keyword paper is shrink-only; never stretch carrier",
+  "status": "validated-v1",
+  "review": {
+    "staticDesign": "user-confirmed",
+    "dynamic": "user-confirmed",
+    "confirmedAt": "2026-09-29"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "title": "信息经过越多层传递，最后保留下来的就越少",
+  "subtitle": "",
+  "levels": [
+    {"title": "原始信息", "value": "100%", "note": "内容完整", "resourceCount": 6},
+    {"title": "第一层", "value": "80%", "note": "略有损耗", "resourceCount": 5},
+    {"title": "第二层", "value": "60%", "note": "继续删减", "resourceCount": 4},
+    {"title": "第三层", "value": "40%", "note": "只剩重点", "resourceCount": 2},
+    {"title": "最终接收", "value": "20%", "note": "大量缺失", "resourceCount": 1}
+  ],
+  "lossLabels": ["减少 20%", "再少 20%", "继续损耗", "最终只剩 20%"]
+}

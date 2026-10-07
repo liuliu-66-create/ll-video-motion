@@ -1,0 +1,11 @@
+{
+  "title": "你现在更需要哪一种？",
+  "leftEyebrow": "先把基础打稳",
+  "leftTitle": "继续学习",
+  "rightEyebrow": "先从实践开始",
+  "rightTitle": "马上动手",
+  "connector": "或",
+  "footer": "没有标准答案，按当前目标选择",
+  "footerMarker": "!",
+  "durationSeconds": 6
+}

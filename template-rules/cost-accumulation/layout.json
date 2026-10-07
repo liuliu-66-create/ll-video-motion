@@ -1,0 +1,21 @@
+{
+  "canvas": {"width": 1920, "height": 1080, "fps": 30},
+  "artBottom": 780,
+  "captionTop": 823,
+  "subtitleSafeTop": 960,
+  "titleMaxLength": 8,
+  "captionFontWeight": 700,
+  "textEntry": {
+    "titleStartSeconds": 0.8,
+    "titleDurationSeconds": 0.4,
+    "captionStartSeconds": 1.25,
+    "captionDurationSeconds": 0.35,
+    "effect": "fade-and-rise"
+  },
+  "captionMaxLength": 18,
+  "resourceRange": [2, 8],
+  "maxConsumption": 7,
+  "slots": ["pile", "addition", "container", "resource"],
+  "preserveAspectRatio": true,
+  "mandatoryPageTitle": false
+}

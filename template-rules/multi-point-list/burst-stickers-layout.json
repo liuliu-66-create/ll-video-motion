@@ -1,0 +1,19 @@
+{
+  "variant": "burst-stickers",
+  "canvas": {"width": 1920, "height": 1080},
+  "subtitleSafeZone": {"top": 860, "bottom": 1080, "rule": "no template content may enter this area"},
+  "sourceAsset": "public/assets/multi-point-burst-stickers-v1.png",
+  "supports": {"itemCount": [2, 3, 4, 5, 6]},
+  "editable": ["items[].text"],
+  "variants": [
+    {"id":"starburst","numberCenter":[175,235],"numberDiameter":142,"textCenter":[365,235],"textBox":{"width":230,"height":170}},
+    {"id":"cloud","numberCenter":[150,220],"numberDiameter":142,"textCenter":[345,220],"textBox":{"width":220,"height":170}},
+    {"id":"ticket","numberCenter":[157,195],"numberDiameter":164,"textCenter":[345,195],"textBox":{"width":180,"height":145}},
+    {"id":"speech-bubble","numberCenter":[165,210],"numberDiameter":166,"textCenter":[345,210],"textBox":{"width":180,"height":160}},
+    {"id":"torn-strip","numberCenter":[150,212],"numberDiameter":164,"textCenter":[440,212],"textBox":{"width":350,"height":145}}
+  ],
+  "itemCountLayouts": {"2":"two large centered stickers","3":"two above and one centered below","4":"two columns by two rows","5":"two above and three below, matching the static direction","6":"three columns by two rows"},
+  "animation": "sticker cluster enters; number stamps in; keyword follows",
+  "numberRule": "all rendered red badges are approximately 150px; all number glyphs use one fixed font size per item-count layout",
+  "textRule": "center-on-each-measured-variant-safe-area; text center and badge center share the same visual horizontal axis; shrink-only; never-shift-center"
+}

@@ -1,0 +1,12 @@
+{
+  "canvas": {"width": 1920, "height": 1080},
+  "reference": "references/key-conclusion/reference-01-editorial-collage.png",
+  "blankPlate": "public/assets/key-conclusion-editorial-collage-blank-v1.png",
+  "safeAreas": {
+    "label": [285, 206, 540, 190],
+    "mainConclusion": [255, 396, 1370, 185],
+    "note": [1010, 720, 650, 110]
+  },
+  "textRule": "center-in-own-safe-area; shrink-font-only; all text remains editable",
+  "status": "validated"
+}

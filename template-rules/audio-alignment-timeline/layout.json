@@ -1,0 +1,25 @@
+{
+  "id": "audio-alignment-timeline",
+  "status": "validated",
+  "canvas": {"width": 1920, "height": 1080, "fps": 30},
+  "confirmedAt": "2026-10-01",
+  "regions": {
+    "headline": {"left": 92, "top": 72, "width": 1390},
+    "emphasis": {"right": 105, "top": 82, "width": 270, "height": 98},
+    "audioLane": {"left": 150, "top": 360, "width": 1620, "height": 270},
+    "visualLane": {"left": 150, "top": 672, "width": 1620, "height": 245},
+    "playhead": {"startRatio": 0.03, "endRatio": 0.86, "top": 332, "height": 595}
+  },
+  "constraints": {
+    "clipCount": {"min": 3, "max": 4},
+    "headlineMaxChars": 24,
+    "emphasisMaxChars": 6,
+    "tornPaperScope": ["audioLane", "visualNodes", "emphasis"],
+    "plainTextScope": ["headline", "laneLabels"]
+  },
+  "previews": {
+    "styleframe": "previews/audio-alignment-timeline-candidate-v1.png",
+    "video": "previews/audio-alignment-timeline-dynamic-v1.mp4",
+    "boundary": "qa/audio-alignment-timeline-boundary-v1.png"
+  }
+}

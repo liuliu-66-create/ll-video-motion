@@ -1,0 +1,14 @@
+{
+  "templateId": "imbalance-scale",
+  "composition": "ImbalanceScale",
+  "status": "validated",
+  "semanticCategory": "对比与变化",
+  "structure": "asymmetric-balance-scale",
+  "visualStyle": "newspaper-collage-with-fiber-torn-paper",
+  "contentScope": "generic-unequal-relationship",
+  "internalMetadataVisible": false,
+  "validatedInputs": ["standard", "long-copy-boundary"],
+  "styleframe": "previews/imbalance-scale-candidate-v1.png",
+  "preview": "previews/imbalance-scale-dynamic-v1.mp4",
+  "confirmedAt": "2026-09-30"
+}

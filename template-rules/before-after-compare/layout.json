@@ -1,0 +1,11 @@
+{
+  "canvas": {"width": 1920, "height": 1080},
+  "sourceAsset": "public/assets/before-after-composite-sprites-v3.png",
+  "groups": {
+    "left": {"position": [35, 155], "width": 800, "crop": [42, 55, 625, 525], "titleSafeArea": [115, 128, 560, 258], "bodySafeArea": [192, 365, 425, 132]},
+    "arrow": {"position": [785, 445], "width": 370, "crop": [650, 620, 350, 230]},
+    "right": {"position": [1080, 125], "width": 800, "crop": [995, 50, 630, 560], "titleSafeArea": [145, 115, 535, 255], "bodySafeArea": [205, 368, 415, 130]}
+  },
+  "textRule": "center-in-own-safe-area; shrink-only; never-stretch-title-strip"
+}
+

@@ -1,0 +1,30 @@
+{
+  "id": "final-quality-stamp-board",
+  "status": "validated",
+  "canvas": {"width": 1920, "height": 1080, "fps": 30},
+  "confirmedAt": "2026-10-06",
+  "regions": {
+    "headline": {"left": 100, "top": 70, "width": 1540},
+    "item1": {"left": 105, "top": 248, "width": 790, "height": 170},
+    "item2": {"left": 1000, "top": 238, "width": 800, "height": 170},
+    "item3": {"left": 155, "top": 475, "width": 790, "height": 170},
+    "item4": {"left": 970, "top": 492, "width": 810, "height": 170},
+    "item5": {"left": 295, "top": 714, "width": 850, "height": 170},
+    "conclusion": {"right": 165, "bottom": 91, "width": 320, "height": 184}
+  },
+  "constraints": {
+    "itemCount": 5,
+    "headlineMaxChars": 22,
+    "labelMaxChars": 7,
+    "valueMaxChars": 11,
+    "conclusionMaxChars": 6,
+    "supportedStatus": ["passed"],
+    "tornPaperScope": ["checkItems"],
+    "stampCount": 1
+  },
+  "previews": {
+    "styleframe": "previews/final-quality-stamp-board-candidate-v3.png",
+    "video": "previews/final-quality-stamp-board-dynamic-v1.mp4",
+    "boundary": "qa/final-quality-stamp-board-boundary-v1.png"
+  }
+}

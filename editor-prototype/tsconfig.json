@@ -1,0 +1,7 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "noEmit": true
+  },
+  "include": ["remotion", "../src/templates/ConceptExplainerTopDown.tsx", "../src/styles/brand.ts"]
+}

@@ -1,0 +1,14 @@
+{
+  "headline": "同样的时间，产出效率提升了多少？",
+  "context": "连续记录一周，在工作时长不变的情况下，对比调整前后的平均日产出。",
+  "eyebrow": "连续 7 天实测记录",
+  "prefix": "",
+  "value": "3.5",
+  "suffix": "倍",
+  "label": "平均产出效率",
+  "beforeLabel": "调整前",
+  "beforeValue": "2 条",
+  "afterLabel": "调整后",
+  "afterValue": "7 条",
+  "footnote": "从每天 2 条，提升到每天 7 条"
+}

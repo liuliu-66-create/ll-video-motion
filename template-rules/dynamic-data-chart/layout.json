@@ -1,0 +1,11 @@
+{
+  "templateId": "dynamic-data-chart",
+  "composition": "DynamicDataChart",
+  "status": "validated",
+  "staticConfirmedAt": "2026-09-30",
+  "dynamicConfirmedAt": "2026-09-30",
+  "variants": ["category-bars", "time-line", "qualitative-rise", "step-growth"],
+  "canvas": {"width": 1920, "height": 1080},
+  "safeArea": {"left": 86, "right": 86, "top": 70, "bottom": 70},
+  "internalMetadataVisible": false
+}

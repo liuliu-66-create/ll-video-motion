@@ -1,0 +1,12 @@
+{
+  "variant": "step-growth",
+  "headline": "能力不是突然提升，而是一阶一阶长出来的",
+  "eyebrow": "从第一次尝试到稳定复用",
+  "items": [
+    {"label": "起步"},
+    {"label": "熟练"},
+    {"label": "稳定"},
+    {"label": "复用"}
+  ],
+  "conclusion": "逐级形成能力"
+}

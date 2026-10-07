@@ -1,0 +1,28 @@
+{
+  "variant": "staggered-memo",
+  "canvas": {"width": 1920, "height": 1080},
+  "subtitleSafeZone": {"top": 860, "bottom": 1080, "rule": "no template content may enter this area"},
+  "sourceAsset": "public/assets/multi-point-staggered-memo-sprites-v1.png",
+  "supports": {"itemCount": [2, 3, 4, 5, 6]},
+  "contentLayers": {
+    "number": "auto-generated; optical center locked to the small left paper tab; never manually shifted per item",
+    "text": "center locked to the large cream memo safe area; shrink-only; vertical anchor is identical across memo variants",
+    "icon": "optional; chosen from the shared screen-recording icon sprite"
+  },
+  "anchorRule": {
+    "reference": "variant-01-approved-center",
+    "numberCenterInCrop": [154, 215],
+    "textCenterInCrop": [462, 228],
+    "appliesToAllMemoVariants": true,
+    "requiredChecks": ["each-item-horizontal-center", "each-item-vertical-center", "three-item-layout", "six-item-layout"]
+  },
+  "itemCountLayouts": {
+    "2": "two large diagonal memo islands",
+    "3": "asymmetric triangular stagger",
+    "4": "two-by-two staggered grid",
+    "5": "two-two-one compact stagger",
+    "6": "two columns by three rows"
+  },
+  "animation": "memo plate enters first; number and text follow; optional icon pops last",
+  "textRule": "center-on-safe-area; shrink-only; never-shift-center"
+}

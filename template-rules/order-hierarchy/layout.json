@@ -1,0 +1,30 @@
+{
+  "status": "validated",
+  "review": {
+    "staticDesign": "user-confirmed",
+    "dynamic": "user-confirmed"
+  },
+  "canvas": {"width": 1920, "height": 1080, "subtitleTop": 940},
+  "itemCount": {"min": 3, "default": 3, "max": 3},
+  "textLimits": {"titleCharacters": 6, "noteCharacters": 10, "connectionCharacters": 6},
+  "levels": [
+    {"role": "upstream", "left": 75, "top": 60, "artWidth": 340, "titleTop": 552},
+    {"role": "middle", "left": 650, "top": 125, "artWidth": 300, "titleTop": 673},
+    {"role": "production", "left": 1200, "top": 230, "artWidth": 470, "titleTop": 773}
+  ],
+  "arrows": [
+    {"left": 445, "top": 408, "width": 178, "rotation": -2},
+    {"left": 978, "top": 535, "width": 190, "rotation": 3}
+  ],
+  "assets": {
+    "peopleSheet": "assets/order-hierarchy-people-v2.png",
+    "arrow": "assets/paper-arrow-down-right-v1.png"
+  },
+  "rules": [
+    "固定三层关系，不作为通用步骤流程",
+    "人物先于文字进入",
+    "箭头保持自然比例并用裁切展开",
+    "第二支箭头不得被制作方人物遮挡",
+    "所有正文元素保持在字幕安全区上方"
+  ]
+}

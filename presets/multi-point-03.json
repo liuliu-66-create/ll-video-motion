@@ -1,0 +1,9 @@
+{
+  "template": "multi-point-list",
+  "items": [
+    {"text": "确定选题"},
+    {"text": "准备逐字稿"},
+    {"text": "生成配音"}
+  ],
+  "durationSeconds": 5
+}

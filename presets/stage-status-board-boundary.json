@@ -1,0 +1,10 @@
+{
+  "headline": "这个复杂项目，现在推进到哪一个阶段了？",
+  "stages": [
+    {"title": "需求与目标确认", "note": "核心方向已经完成确认", "status": "done"},
+    {"title": "素材收集与整理", "note": "全部真实素材已经归档", "status": "done"},
+    {"title": "视觉效果设计确认", "note": "正在逐项检查版式与风格", "status": "active"},
+    {"title": "视频剪辑与声音对齐", "note": "等待前一阶段正式通过", "status": "pending"},
+    {"title": "发布前质量检查", "note": "尚未开始", "status": "pending"}
+  ]
+}

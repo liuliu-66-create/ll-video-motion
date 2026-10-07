@@ -1,0 +1,9 @@
+{
+  "canvas": {"width": 1920, "height": 1080},
+  "safeArea": {"left": 90, "right": 90, "top": 70, "bottom": 70},
+  "leftEditorialColumn": {"left": 86, "top": 74, "width": 560},
+  "comparisonChart": {"left": 90, "top": 486, "width": 550, "height": 410},
+  "numberArea": {"left": 765, "top": 210, "width": 1090, "height": 510},
+  "valueLength": {"recommended": 6, "maximum": 8},
+  "headlineLength": {"recommended": 19, "maximum": 25}
+}

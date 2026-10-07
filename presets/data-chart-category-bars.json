@@ -1,0 +1,13 @@
+{
+  "variant": "category-bars",
+  "headline": "这四类内容，哪一种表现最好？",
+  "eyebrow": "近 30 天内容表现",
+  "unit": "%",
+  "items": [
+    {"label": "教程", "value": 38},
+    {"label": "测评", "value": 52},
+    {"label": "清单", "value": 64},
+    {"label": "案例", "value": 81}
+  ],
+  "conclusion": "案例内容最高"
+}

@@ -1,0 +1,14 @@
+{
+  "headline": "正式开始剪辑前，先把真实素材全部摊开",
+  "status": "素材准备完成",
+  "screenRecordingSrc": "materials/material-screen-recording.png",
+  "screenRecordingLabel": "完整操作录屏",
+  "screenshotSrc": "materials/material-operation-screenshot.png",
+  "screenshotLabel": "关键步骤截图",
+  "brandVisualSrc": "materials/material-brand-visual.png",
+  "brandVisualLabel": "品牌参考画面",
+  "audioLabel": "最终配音文件",
+  "audioFile": "final-voiceover-20261006.wav",
+  "stampTop": "准备",
+  "stampBottom": "完成"
+}

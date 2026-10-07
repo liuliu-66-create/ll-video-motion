@@ -1,0 +1,27 @@
+{
+  "variant": "index-tabs",
+  "canvas": {"width": 1920, "height": 1080},
+  "subtitleSafeZone": {"top": 860, "bottom": 1080, "rule": "no template content may enter this area"},
+  "sourceAssets": [
+    "public/assets/multi-point-index-tabs-backing-v1.png",
+    "public/assets/multi-point-index-tabs-sprites-v1.png"
+  ],
+  "supports": {"itemCount": [2, 3, 4, 5, 6]},
+  "editable": ["items[].text"],
+  "anchorRule": {
+    "numberCentering": "both-axes-on-black-badge",
+    "textCentering": "both-axes-on-label-safe-area",
+    "numberBox": {"width": 170, "height": 170},
+    "textBox": {"width": 560, "height": 150},
+    "requiredChecks": ["four-item-layout", "six-item-layout", "each-number-center", "each-text-center"]
+  },
+  "itemCountLayouts": {
+    "2": "two centered columns",
+    "3": "two above and one centered below",
+    "4": "two columns by two rows",
+    "5": "two-two-one compact grid",
+    "6": "two columns by three rows"
+  },
+  "animation": "backing paper settles; each label enters; number stamps in; keyword follows",
+  "textRule": "center-on-label-safe-area; shrink-only; never-shift-center"
+}

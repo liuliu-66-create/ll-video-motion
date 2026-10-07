@@ -1,0 +1,15 @@
+{
+  "templateId": "concept-explainer-radial",
+  "coreTitle": "动效 Skill",
+  "coreSubtitle": "文字自动生成视频",
+  "leftLabel": "输入什么",
+  "leftText": "一段文字",
+  "rightLabel": "自动完成",
+  "rightPrefix": "",
+  "rightHighlight": "3步",
+  "rightSuffix": "",
+  "bottomLabel": "怎么修改",
+  "bottomLine1": "点击编辑",
+  "bottomLine2": "改完文字重新导出",
+  "durationSeconds": 5
+}

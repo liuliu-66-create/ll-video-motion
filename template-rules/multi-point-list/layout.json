@@ -1,0 +1,18 @@
+{
+  "canvas": {"width": 1920, "height": 1080},
+  "sourceAsset": "public/assets/multi-point-torn-paper-sprites-v1.png",
+  "itemCountLayouts": {
+    "2": {"columns": 1, "left": 320, "tops": [125, 570], "width": 1280},
+    "3": {"columns": 1, "left": 320, "tops": [35, 375, 685], "width": 1280},
+    "4": {"columns": 1, "left": 410, "startTop": 20, "gap": 245, "width": 1100},
+    "5": {"columns": 1, "left": 550, "startTop": 20, "gap": 190, "width": 820},
+    "6": {"columns": 2, "lefts": [70, 1110], "tops": [110, 410, 710], "width": 740}
+  },
+  "rowVariants": [
+    {"crop": [170, 4, 1494, 356], "badgeCenter": [265, 224], "badgeDiameter": 205, "textCenter": [747, 224], "textMaxWidth": 780},
+    {"crop": [176, 356, 1490, 302], "badgeCenter": [260, 160], "badgeDiameter": 205, "textCenter": [745, 160], "textMaxWidth": 780},
+    {"crop": [170, 642, 1494, 296], "badgeCenter": [265, 158], "badgeDiameter": 205, "textCenter": [747, 158], "textMaxWidth": 780}
+  ],
+  "textRule": "center-on-cream-paper; shrink-only; never-shift-center"
+}
+

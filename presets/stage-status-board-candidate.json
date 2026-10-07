@@ -1,0 +1,9 @@
+{
+  "headline": "这个视频，现在推进到哪一步了？",
+  "stages": [
+    {"title": "素材准备", "note": "逐字稿与录屏已整理", "status": "done"},
+    {"title": "画面生成", "note": "静态效果已经确认", "status": "done"},
+    {"title": "剪辑合成", "note": "正在对齐声音与画面", "status": "active"},
+    {"title": "发布检查", "note": "等待最终成片", "status": "pending"}
+  ]
+}

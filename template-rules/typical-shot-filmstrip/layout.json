@@ -1,0 +1,27 @@
+{
+  "id": "typical-shot-filmstrip",
+  "status": "validated",
+  "canvas": {"width": 1920, "height": 1080, "fps": 30},
+  "confirmedAt": "2026-10-06",
+  "regions": {
+    "headline": {"left": 100, "top": 72, "width": 1420},
+    "eyebrow": {"right": 105, "top": 80, "width": 260, "height": 70},
+    "filmstrip": {"left": 56, "right": 56, "top": 262, "height": 578},
+    "shotGrid": {"left": 123, "right": 123, "top": 340, "bottom": 318, "columns": 3, "gap": 28},
+    "note": {"left": 385, "right": 385, "bottom": 80}
+  },
+  "constraints": {
+    "shotCount": 3,
+    "headlineMaxChars": 19,
+    "eyebrowMaxChars": 7,
+    "labelMaxChars": 7,
+    "noteMaxChars": 30,
+    "tornPaperScope": ["filmstripLayers", "shotBackings", "shotLabels", "eyebrow"],
+    "plainTextScope": ["headline", "note"]
+  },
+  "previews": {
+    "styleframe": "previews/typical-shot-filmstrip-candidate-v2.png",
+    "video": "previews/typical-shot-filmstrip-dynamic-v1.mp4",
+    "boundary": "qa/typical-shot-filmstrip-boundary-v1.png"
+  }
+}

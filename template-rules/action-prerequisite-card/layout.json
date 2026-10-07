@@ -1,0 +1,28 @@
+{
+  "id": "action-prerequisite-card",
+  "status": "validated",
+  "canvas": {"width": 1920, "height": 1080, "fps": 30},
+  "confirmedAt": "2026-10-06",
+  "regions": {
+    "headline": {"left": 105, "top": 72, "maxWidth": 1650},
+    "divider": {"left": 108, "top": 170, "width": 1705},
+    "questionMark": {"left": 118, "top": 250, "width": 430, "height": 650},
+    "timingLabel": {"left": 590, "top": 278, "width": 300, "height": 78},
+    "prompt": {"left": 590, "top": 396, "maxWidth": 1080},
+    "question": {"left": 595, "top": 572, "width": 1080}
+  },
+  "constraints": {
+    "questionCount": 1,
+    "headlineMaxChars": 20,
+    "timingLabelMaxChars": 7,
+    "promptMaxChars": 6,
+    "questionMaxChars": 23,
+    "questionMarkBackground": "none",
+    "tornPaperScope": ["timingLabel"]
+  },
+  "previews": {
+    "styleframe": "previews/action-prerequisite-card-candidate-v2.png",
+    "video": "previews/action-prerequisite-card-dynamic-v1.mp4",
+    "boundary": "qa/action-prerequisite-card-boundary-v1.png"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "canvas": {
+    "width": 1920,
+    "height": 1080,
+    "aspectRatio": "16:9"
+  },
+  "assets": {
+    "blankPlate": "public/assets/key-conclusion-blank-v1.png",
+    "wearTexture": "public/assets/distressed-ink-wear-v1.png",
+    "approvedStyleframe": "previews/key-conclusion-styleframe-v1.png"
+  },
+  "safeAreas": {
+    "label": {
+      "left": 362,
+      "top": 315,
+      "width": 446,
+      "height": 142,
+      "alignment": "center"
+    },
+    "mainConclusion": {
+      "left": 310,
+      "top": 470,
+      "width": 1300,
+      "height": 190,
+      "alignment": "center"
+    }
+  },
+  "typography": {
+    "fontFamily": "Microsoft YaHei, SimHei, sans-serif",
+    "labelMaxFontSize": 89,
+    "mainMaxFontSize": 137,
+    "mainMinFontSize": 92,
+    "wearOpacity": 0.58,
+    "longTextPolicy": "shrink-font-only"
+  },
+  "timingFramesAt30fps": {
+    "plate": {"start": 3, "duration": 22},
+    "label": {"start": 22, "duration": 15},
+    "firstPart": {"start": 38, "duration": 17},
+    "secondPart": {"start": 51, "duration": 17},
+    "stableFrom": 68
+  },
+  "forbidden": [
+    "final-frame-raster-overlay",
+    "font-style-switch",
+    "random-wear-texture",
+    "underline",
+    "glow",
+    "content-specific-icon"
+  ]
+}

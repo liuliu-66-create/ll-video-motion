@@ -1,0 +1,11 @@
+{
+  "templateId": "concept-explainer-topdown",
+  "coreTitle": "GitHub",
+  "definition": "全球开源代码和项目托管平台",
+  "leftPrefix": "超过",
+  "leftHighlight": "1.8亿",
+  "leftSuffix": "用户",
+  "middleText": "资源免费开放",
+  "rightText": "不会代码也能用",
+  "durationSeconds": 5
+}

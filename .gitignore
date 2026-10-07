@@ -1,0 +1,24 @@
+# Dependencies and local tool state
+node_modules/
+.playwright-cli/
+
+# Generated renders and internal QA evidence
+output/
+qa/
+previews/
+editor-prototype/output/
+editor-prototype/jobs/
+
+# Local runtime configuration
+skills/ll-video-motion/runtime.local.json
+.env
+.env.*
+
+# Internal handoff and planning notes
+*新窗口交接文档*.md
+分类映射草案-*.md
+
+# Operating-system files
+.DS_Store
+Thumbs.db
+desktop.ini

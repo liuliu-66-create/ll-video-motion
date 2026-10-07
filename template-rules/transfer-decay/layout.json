@@ -1,0 +1,17 @@
+{
+  "canvas": {"width": 1920, "height": 1080},
+  "levelCount": {"min": 3, "max": 5, "standard": 4},
+  "standardPositions": [
+    {"left": 80, "top": 285, "width": 330},
+    {"left": 515, "top": 405, "width": 330},
+    {"left": 950, "top": 525, "width": 330},
+    {"left": 1385, "top": 645, "width": 330}
+  ],
+  "carrierRule": {
+    "plainText": ["title", "subtitle", "levelTitle", "levelNote", "lossLabel"],
+    "tornPaper": ["levelValue"],
+    "maxTornPaperCount": 5
+  },
+  "resourceRule": "resource illustration count must decrease with the displayed values",
+  "status": "candidate-static-review-v1"
+}

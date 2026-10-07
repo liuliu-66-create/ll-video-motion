@@ -1,0 +1,11 @@
+{
+  "title": "预算每转一层，真正用于制作的就更少",
+  "subtitle": "",
+  "levels": [
+    {"title": "源头预算", "value": "100%", "note": "资源完整进入", "resourceCount": 6},
+    {"title": "第一次转手", "value": "70%", "note": "先被截留一部分", "resourceCount": 4},
+    {"title": "第二次转手", "value": "40%", "note": "继续被压缩", "resourceCount": 2},
+    {"title": "真正制作端", "value": "20%", "note": "只剩最后一点", "resourceCount": 1}
+  ],
+  "lossLabels": ["被截留 30%", "又减少 30%", "最后只剩 20%"]
+}

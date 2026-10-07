@@ -1,0 +1,14 @@
+{
+  "headline": "做视频前，把真实素材先摊开",
+  "status": "四类素材",
+  "screenRecordingSrc": "materials/material-screen-recording.png",
+  "screenRecordingLabel": "真实录屏",
+  "screenshotSrc": "materials/material-operation-screenshot.png",
+  "screenshotLabel": "操作截图",
+  "brandVisualSrc": "materials/material-brand-visual.png",
+  "brandVisualLabel": "品牌画面",
+  "audioLabel": "声音素材",
+  "audioFile": "voiceover-final.wav",
+  "stampTop": "素材",
+  "stampBottom": "到齐"
+}

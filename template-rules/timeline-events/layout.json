@@ -1,0 +1,87 @@
+{
+  "status": "validated",
+  "review": {
+    "staticDesign": "user-confirmed",
+    "dynamic": "user-confirmed"
+  },
+  "canvas": {
+    "width": 1920,
+    "height": 1080,
+    "subtitleTop": 940
+  },
+  "itemCount": {
+    "min": 3,
+    "default": 4,
+    "max": 5
+  },
+  "title": {
+    "enabled": false,
+    "reservedSpace": 0
+  },
+  "axis": {
+    "left": 40,
+    "top": 708,
+    "width": 1840,
+    "height": 3,
+    "type": "straight-line"
+  },
+  "columns": {
+    "margin": 56,
+    "availableWidth": 1808,
+    "formula": "centerX = 56 + (1808 / count) * (index + 0.5)"
+  },
+  "art": {
+    "bottom": 700,
+    "scale": "uniform",
+    "entry": "translateY(-18 to 0)",
+    "maxHeightAt3Nodes": 533
+  },
+  "text": {
+    "top": 771,
+    "height": 100,
+    "dateFont": 40,
+    "descriptionFont": 30,
+    "alignment": "center",
+    "maxDateCharacters": 8,
+    "maxDescriptionCharacters": 10
+  },
+  "spriteSheet": {
+    "asset": "assets/timeline-collage-sprites-v1.png",
+    "width": 1774,
+    "height": 887,
+    "crops": {
+      "delivery": {
+        "x": 152,
+        "y": 56,
+        "width": 593,
+        "height": 423
+      },
+      "calendar": {
+        "x": 1020,
+        "y": 19,
+        "width": 521,
+        "height": 454
+      },
+      "waiting": {
+        "x": 254,
+        "y": 499,
+        "width": 526,
+        "height": 381
+      },
+      "disconnected": {
+        "x": 995,
+        "y": 506,
+        "width": 586,
+        "height": 368
+      }
+    }
+  },
+  "rules": [
+    "插画在线上，日期和说明在线下",
+    "禁止箭头和步骤编号",
+    "禁止拉伸图片",
+    "文字区域在全部动画帧中保持独立",
+    "不得伪造实际证据",
+    "静态确认不等于动态确认"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "headline": "一条完整视频里，需要哪些代表性镜头？",
+  "eyebrow": "镜头组合示例",
+  "note": "插画演示、真实录屏和信息图画面，共同组成完整的视频叙事",
+  "shots": [
+    {
+      "label": "故事插画镜头",
+      "imageSrc": "materials/material-brand-visual.png",
+      "objectPosition": "49% 55%"
+    },
+    {
+      "label": "真实操作录屏",
+      "imageSrc": "materials/material-screen-recording.png",
+      "objectPosition": "53% 50%"
+    },
+    {
+      "label": "结构信息图镜头",
+      "imageSrc": "materials/material-infographic-shot.png",
+      "objectPosition": "50% 49%"
+    }
+  ]
+}

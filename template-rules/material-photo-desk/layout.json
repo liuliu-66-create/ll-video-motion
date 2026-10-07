@@ -1,0 +1,29 @@
+{
+  "id": "material-photo-desk",
+  "status": "validated",
+  "canvas": {"width": 1920, "height": 1080, "fps": 30},
+  "confirmedAt": "2026-10-06",
+  "regions": {
+    "headline": {"left": 98, "top": 68, "width": 1310},
+    "status": {"right": 104, "top": 78, "width": 250, "height": 68},
+    "screenRecording": {"left": 88, "top": 240, "width": 760, "height": 540},
+    "screenshot": {"left": 860, "top": 218, "width": 620, "height": 408},
+    "audio": {"left": 170, "bottom": 70, "width": 680, "height": 222},
+    "brandVisual": {"right": 86, "bottom": 72, "width": 650, "height": 344},
+    "completionStamp": {"left": 1030, "top": 642, "width": 176, "height": 176}
+  },
+  "constraints": {
+    "materialCount": 4,
+    "headlineMaxChars": 22,
+    "statusMaxChars": 6,
+    "labelMaxChars": 6,
+    "audioFileMaxChars": 30,
+    "tornPaperScope": ["materialLabels", "status", "photoBackings"],
+    "plainTextScope": ["headline", "audioFile"]
+  },
+  "previews": {
+    "styleframe": "previews/material-photo-desk-candidate-v1.png",
+    "video": "previews/material-photo-desk-dynamic-v1.mp4",
+    "boundary": "qa/material-photo-desk-boundary-v1.png"
+  }
+}

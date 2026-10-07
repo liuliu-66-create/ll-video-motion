@@ -1,0 +1,8 @@
+{
+  "events": [
+    {"time": "交片后", "title": "开始催款", "illustration": "delivery"},
+    {"time": "年初", "title": "反复沟通", "illustration": "calendar"},
+    {"time": "年中", "title": "继续拖延", "illustration": "waiting"},
+    {"time": "6月", "title": "彻底失联", "illustration": "disconnected"}
+  ]
+}

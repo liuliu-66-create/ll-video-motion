@@ -1,0 +1,21 @@
+{
+  "templateId": "stage-status-board",
+  "composition": "StageStatusBoard",
+  "status": "validated",
+  "confirmedAt": "2026-09-30",
+  "semanticCategory": "流程与阶段",
+  "structure": "continuous-progress-ribbon",
+  "visualStyle": "newspaper-collage-with-local-torn-paper",
+  "supportedStageCount": {
+    "standard": 4,
+    "max": 5
+  },
+  "carriers": {
+    "headline": "none",
+    "currentStage": "paper-fiber-torn-strip",
+    "activeStage": "distressed-red-torn-strip",
+    "doneStage": "check-marker",
+    "pendingStage": "low-contrast-plain-row"
+  },
+  "internalMetadataVisible": false
+}

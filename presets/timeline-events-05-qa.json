@@ -1,0 +1,10 @@
+{
+  "debug": true,
+  "events": [
+    {"time": "2025年初", "title": "第一批视频交付完成", "illustration": "delivery"},
+    {"time": "2025年春", "title": "等待后续付款安排", "illustration": "calendar"},
+    {"time": "2025年中", "title": "反复沟通尚未到账", "illustration": "waiting"},
+    {"time": "2025年6月", "title": "再次询问付款进度", "illustration": "calendar"},
+    {"time": "2025年末", "title": "未能取得进一步联系", "illustration": "disconnected"}
+  ]
+}

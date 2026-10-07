@@ -1,0 +1,12 @@
+{
+  "canvas": {"width": 1920, "height": 1080},
+  "levelCount": {"min": 3, "max": 5, "standard": 4},
+  "order": "top-to-bottom",
+  "carrierRule": {
+    "plainText": ["title", "subtitle", "levelNote"],
+    "tornPaper": ["levelTitle"],
+    "maxTornPaperCount": 5
+  },
+  "connectionRule": "short leader lines only; no directional arrows",
+  "status": "candidate-static-review-v1"
+}

@@ -1,0 +1,12 @@
+{
+  "templateId": "input-convergence",
+  "composition": "InputConvergence",
+  "status": "validated",
+  "confirmedAt": "2026-09-30",
+  "semanticCategory": "关系与结构",
+  "structure": "multiple-inputs-to-single-output",
+  "visualStyle": "newspaper-collage-with-torn-input-tags",
+  "itemCount": [3, 4, 5, 6],
+  "internalMetadataVisible": false,
+  "validatedInputs": ["reference-6", "minimum-3-long-copy-boundary"]
+}

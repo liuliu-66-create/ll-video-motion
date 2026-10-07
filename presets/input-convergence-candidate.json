@@ -1,0 +1,12 @@
+{
+  "headline": "不同输入，如何汇成一个结果？",
+  "inputs": [
+    {"label": "文本输入", "mark": "≡"},
+    {"label": "图片输入", "mark": "▧"},
+    {"label": "语音输入", "mark": "♩"},
+    {"label": "视频输入", "mark": "▷"},
+    {"label": "表格数据", "mark": "▦"},
+    {"label": "网页链接", "mark": "↗"}
+  ],
+  "outputLabel": "整合结果"
+}

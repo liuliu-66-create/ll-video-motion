@@ -1,0 +1,10 @@
+{
+  "template": "multi-point-list",
+  "items": [
+    {"text": "分析音频"},
+    {"text": "拆解分镜"},
+    {"text": "准备录屏"},
+    {"text": "生成成片"}
+  ],
+  "durationSeconds": 5
+}

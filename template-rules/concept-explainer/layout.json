@@ -1,0 +1,26 @@
+{
+  "canvas": {"width": 1920, "height": 1080},
+  "variants": {
+    "radial": {
+      "composition": "ConceptExplainerRadialGithub",
+      "core": {"position": [655, 303], "size": [610, 342], "titleSafeArea": [705, 370, 510, 130], "definitionSafeArea": [720, 515, 480, 58], "surface": "single-torn-paper-card"},
+      "left": {"position": [150, 135], "width": 430, "textSafeArea": [150, 135, 430, 155], "surface": "plain-text"},
+      "right": {"position": [1370, 118], "width": 440, "textSafeArea": [1370, 118, 440, 155], "surface": "plain-text"},
+      "bottom": {"position": [610, 790], "width": 700, "textSafeArea": [610, 790, 700, 185], "surface": "plain-text"},
+      "connectors": {"left": [[700, 360], [585, 255]], "right": [[1220, 360], [1330, 220]], "bottom": [[960, 650], [960, 758]], "rule": "stop-outside-text"},
+      "relation": "outer-labels-explain-core"
+    },
+    "topdown": {
+      "composition": "ConceptExplainerTopDownGithub",
+      "top": {"position": [485, 105], "width": 950, "textSafeArea": [485, 105, 950, 250], "surface": "plain-text"},
+      "connector": {"bounds": [275, 382, 1420, 138], "targets": [[275, 520], [960, 492], [1695, 520]]},
+      "sheet": {"position": [115, 512], "size": [1690, 385], "surface": "single-wide-torn-paper"},
+      "bottomLeft": {"position": [190, 574], "width": 430, "textSafeArea": [190, 574, 430, 235]},
+      "bottomMiddle": {"position": [740, 574], "width": 440, "textSafeArea": [740, 574, 440, 235]},
+      "bottomRight": {"position": [1303, 574], "width": 430, "textSafeArea": [1303, 574, 430, 235]},
+      "relation": "concept-to-definition-to-attributes"
+    }
+  },
+  "textRule": "use-plain-text-or-the-single-designated-paper-surface; keep-connectors-outside-text; shrink-only",
+  "metadataRule": "never-render-template-name-category-name-or-review-label"
+}

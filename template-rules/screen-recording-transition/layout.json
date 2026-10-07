@@ -1,0 +1,67 @@
+{
+  "canvas": {
+    "width": 1920,
+    "height": 1080,
+    "aspectRatio": "16:9"
+  },
+  "assets": {
+    "background": "public/assets/newspaper-neutral-v1.png",
+    "components": "public/assets/screen-recording-components-sprites-v1.png"
+  },
+  "titlePlate": {
+    "left": 5,
+    "top": 285,
+    "width": 480,
+    "sourceCrop": {"x": 1085, "y": 535, "width": 565, "height": 325},
+    "safeAreaInSourceCrop": {"left": 45, "top": 88, "width": 475, "height": 175},
+    "alignment": "center-both-axes",
+    "longTextPolicy": "shrink-font-only"
+  },
+  "icon": {
+    "left": 78,
+    "top": 570,
+    "width": 250,
+    "allowed": ["cursor", "hand", "keyboard", "magnifier", "gear", "play"],
+    "maxVisibleCount": 1
+  },
+  "arrow": {
+    "left": 288,
+    "top": 515,
+    "width": 250,
+    "direction": "right",
+    "target": "recording-left-edge",
+    "silhouetteCropRequired": true
+  },
+  "recording": {
+    "right": 1900,
+    "maxWidth": 1320,
+    "maxHeight": 860,
+    "fit": "contain-by-changing-container-size",
+    "preserveSourceAspectRatio": true,
+    "crop": false,
+    "blurFill": false,
+    "graySideFill": false,
+    "decorativeFrame": false
+  },
+  "timingFramesAt30fps": {
+    "title": {"start": 4, "duration": 20},
+    "icon": {"start": 20, "duration": 18},
+    "arrow": {"start": 31, "duration": 17},
+    "recording": {"start": 38, "duration": 24},
+    "stableFrom": 62
+  },
+  "audio": {
+    "sampleRecordingVolume": 0.9,
+    "finalVideoPolicy": "keep-or-mute-at-final-composition-stage"
+  },
+  "forbidden": [
+    "recording-torn-frame",
+    "gray-side-fill",
+    "blurred-side-fill",
+    "stretch-video",
+    "crop-operation-ui",
+    "manual-title-positioning",
+    "multiple-icons",
+    "logo"
+  ]
+}

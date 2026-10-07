@@ -1,0 +1,35 @@
+{
+  "canvas": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30
+  },
+  "textRegion": {
+    "left": 1490,
+    "width": 365,
+    "top": [
+      218,
+      729
+    ]
+  },
+  "fontSize": {
+    "title": 44,
+    "caption": 28
+  },
+  "fontWeight": 700,
+  "subtitleSafeTop": 960,
+  "defaultDurationSeconds": 6,
+  "textStartSeconds": {
+    "title": 2.8,
+    "caption": 3.3
+  },
+  "titleMaxLength": 8,
+  "captionMaxLength": 12,
+  "resourceCount": {
+    "groups": 3,
+    "min": 1,
+    "max": 6,
+    "strictlyDescending": true
+  },
+  "mandatoryTitle": false
+}

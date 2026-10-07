@@ -1,0 +1,10 @@
+{
+  "levels": [
+    {"title": "项目决策部门", "note": "确定整体项目与预算"},
+    {"title": "外包对接公司", "note": "继续转交实际制作方"},
+    {"title": "一线制作团队", "note": "负责拍摄剪辑与交付"}
+  ],
+  "connectionLabels": ["确认委托关系", "继续转交制作"],
+  "levelAtSeconds": [0, 1.8, 3.73],
+  "connectionAtSeconds": [1.13, 3.03]
+}

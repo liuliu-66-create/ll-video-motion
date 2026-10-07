@@ -1,0 +1,16 @@
+{
+  "variant": "time-line",
+  "headline": "发布后的七天，播放量发生了什么变化？",
+  "eyebrow": "单条视频播放走势",
+  "unit": "万",
+  "items": [
+    {"label": "第1天", "value": 1},
+    {"label": "第2天", "value": 2},
+    {"label": "第3天", "value": 2.8},
+    {"label": "第4天", "value": 4.6},
+    {"label": "第5天", "value": 6.2},
+    {"label": "第6天", "value": 7.4},
+    {"label": "第7天", "value": 9.1}
+  ],
+  "conclusion": "第4天开始加速"
+}

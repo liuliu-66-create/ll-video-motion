@@ -1,0 +1,12 @@
+{
+  "variant": "qualitative-rise",
+  "headline": "内容质量，是在一次次迭代中逐渐上升的",
+  "eyebrow": "持续迭代后的变化",
+  "items": [
+    {"label": "起点"},
+    {"label": "积累"},
+    {"label": "提升"},
+    {"label": "稳定"}
+  ],
+  "conclusion": "越做越稳定"
+}

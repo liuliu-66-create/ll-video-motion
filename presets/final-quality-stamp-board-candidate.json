@@ -1,0 +1,11 @@
+{
+  "headline": "交付之前，最后检查这五项",
+  "items": [
+    {"label": "画面尺寸", "value": "1920×1080"},
+    {"label": "声音", "value": "正常"},
+    {"label": "时长", "value": "168 秒"},
+    {"label": "黑帧", "value": "无"},
+    {"label": "字幕", "value": "单行"}
+  ],
+  "conclusion": "全部通过"
+}

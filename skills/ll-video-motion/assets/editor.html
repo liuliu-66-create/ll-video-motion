@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>六六视频动效编辑页</title>
+  <style>
+    :root { color-scheme: light; font-family: "Microsoft YaHei UI", system-ui, sans-serif; background: #e9e4da; color: #1c1a17; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; background: linear-gradient(145deg, #efebe3, #d9d0c1); }
+    main { width: min(1480px, calc(100% - 32px)); margin: 24px auto; display: grid; grid-template-columns: minmax(360px, 0.8fr) minmax(520px, 1.2fr); gap: 20px; }
+    section { background: rgba(250, 248, 243, 0.95); border: 1px solid #b8ad9b; box-shadow: 0 14px 32px rgba(45, 36, 25, 0.12); padding: 22px; }
+    h1 { margin: 0 0 8px; font-size: 28px; }
+    p { margin: 0 0 16px; line-height: 1.65; color: #625b51; }
+    label { display: block; margin: 14px 0 6px; font-weight: 700; }
+    select, input, textarea, button { width: 100%; font: inherit; }
+    select, input, textarea { border: 1px solid #aaa091; background: #fffefa; padding: 10px 12px; color: #1c1a17; }
+    textarea { min-height: 104px; resize: vertical; font-family: ui-monospace, Consolas, monospace; }
+    button { margin-top: 18px; border: 0; background: #a7342b; color: white; padding: 13px 18px; font-weight: 800; cursor: pointer; }
+    button:disabled { opacity: 0.55; cursor: wait; }
+    .field { border-top: 1px dashed #cfc5b7; padding-top: 4px; }
+    .field small { display: block; color: #857c70; margin-top: 4px; }
+    .stage { aspect-ratio: 16 / 9; background: #161513; display: grid; place-items: center; overflow: hidden; }
+    video { width: 100%; height: 100%; object-fit: contain; background: #161513; }
+    .empty { color: #c7bdad; text-align: center; padding: 28px; }
+    .status { margin-top: 12px; min-height: 24px; color: #8e2d26; font-weight: 700; }
+    .path { margin-top: 12px; word-break: break-all; font-family: ui-monospace, Consolas, monospace; font-size: 13px; color: #625b51; }
+    @media (max-width: 900px) { main { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <main>
+    <section>
+      <h1>六六视频动效编辑页</h1>
+      <p>选择模板并修改字段。这里只展示真实渲染后的 MP4，不使用另一套近似排版冒充预览。</p>
+      <label for="template">模板</label>
+      <select id="template"></select>
+      <div id="fields"></div>
+      <button id="render">重新生成真实 MP4</button>
+      <div class="status" id="status"></div>
+    </section>
+    <section>
+      <div class="stage" id="stage"><div class="empty">生成完成后在这里播放视频</div></div>
+      <div class="path" id="path"></div>
+    </section>
+  </main>
+  <script>
+    const templateSelect = document.querySelector('#template');
+    const fields = document.querySelector('#fields');
+    const renderButton = document.querySelector('#render');
+    const status = document.querySelector('#status');
+    const stage = document.querySelector('#stage');
+    const pathBox = document.querySelector('#path');
+    let props = {};
+
+    const request = async (url, options) => {
+      const response = await fetch(url, options);
+      const data = await response.json();
+      if (!response.ok || data.ok === false) throw new Error(data.error || '请求失败');
+      return data;
+    };
+
+    const renderFields = () => {
+      fields.innerHTML = '';
+      for (const [key, value] of Object.entries(props)) {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'field';
+        const label = document.createElement('label');
+        label.textContent = key;
+        wrapper.appendChild(label);
+        const complex = value !== null && typeof value === 'object';
+        const control = complex || String(value).length > 45 ? document.createElement('textarea') : document.createElement('input');
+        control.dataset.key = key;
+        control.dataset.complex = complex ? 'true' : 'false';
+        control.value = complex ? JSON.stringify(value, null, 2) : String(value ?? '');
+        wrapper.appendChild(control);
+        if (complex) {
+          const hint = document.createElement('small');
+          hint.textContent = '这是数组或组合字段，请保留 JSON 格式。';
+          wrapper.appendChild(hint);
+        }
+        fields.appendChild(wrapper);
+      }
+    };
+
+    const collectProps = () => {
+      const next = {};
+      for (const control of fields.querySelectorAll('[data-key]')) {
+        const key = control.dataset.key;
+        next[key] = control.dataset.complex === 'true' ? JSON.parse(control.value) : control.value;
+      }
+      return next;
+    };
+
+    const loadTemplate = async (id) => {
+      status.textContent = '正在读取模板…';
+      const data = await request(`/api/template?id=${encodeURIComponent(id)}`);
+      props = data.props;
+      renderFields();
+      status.textContent = '';
+    };
+
+    const showVideo = (videoUrl, outputPath) => {
+      stage.innerHTML = '';
+      const video = document.createElement('video');
+      video.controls = true;
+      video.src = `${videoUrl}?t=${Date.now()}`;
+      stage.appendChild(video);
+      pathBox.textContent = outputPath || '';
+    };
+
+    const initialize = async () => {
+      const catalog = await request('/api/catalog');
+      for (const style of catalog.styles) {
+        const option = document.createElement('option');
+        option.value = style.styleId;
+        option.textContent = `${style.name} · ${style.styleId}`;
+        templateSelect.appendChild(option);
+      }
+
+      const jobId = new URLSearchParams(location.search).get('job');
+      if (jobId) {
+        const data = await request(`/api/job?id=${encodeURIComponent(jobId)}`);
+        templateSelect.value = data.job.templateId;
+        props = data.job.props;
+        renderFields();
+        if (data.videoUrl) showVideo(data.videoUrl, data.job.outputPath);
+      } else if (catalog.styles.length) {
+        templateSelect.value = catalog.styles[0].styleId;
+        await loadTemplate(templateSelect.value);
+      }
+    };
+
+    templateSelect.addEventListener('change', () => loadTemplate(templateSelect.value).catch((error) => { status.textContent = error.message; }));
+    renderButton.addEventListener('click', async () => {
+      try {
+        renderButton.disabled = true;
+        status.textContent = '正在生成真实 MP4，请稍候…';
+        const data = await request('/api/render', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({templateId: templateSelect.value, props: collectProps()}),
+        });
+        props = collectProps();
+        showVideo(data.videoUrl, data.outputPath);
+        history.replaceState(null, '', `/?job=${encodeURIComponent(data.jobId)}`);
+        status.textContent = '生成完成。';
+      } catch (error) {
+        status.textContent = error.message;
+      } finally {
+        renderButton.disabled = false;
+      }
+    });
+
+    initialize().catch((error) => { status.textContent = error.message; });
+  </script>
+</body>
+</html>

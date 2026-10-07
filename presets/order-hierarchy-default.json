@@ -1,0 +1,10 @@
+{
+  "levels": [
+    {"title": "上游甲方", "note": "决定项目与预算"},
+    {"title": "中间方", "note": "把项目继续转交"},
+    {"title": "制作方", "note": "我和朋友实际制作"}
+  ],
+  "connectionLabels": ["委托项目", "转交制作"],
+  "levelAtSeconds": [0, 1.8, 3.73],
+  "connectionAtSeconds": [1.13, 3.03]
+}

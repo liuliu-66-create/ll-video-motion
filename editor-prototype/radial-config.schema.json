@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Concept Explainer Radial Config",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["templateId", "coreTitle", "coreSubtitle", "leftLabel", "leftText", "rightLabel", "rightPrefix", "rightHighlight", "rightSuffix", "bottomLabel", "bottomLine1", "bottomLine2", "durationSeconds"],
+  "properties": {
+    "templateId": {"const": "concept-explainer-radial"},
+    "coreTitle": {"type": "string", "minLength": 1, "maxLength": 12},
+    "coreSubtitle": {"type": "string", "minLength": 1, "maxLength": 20},
+    "leftLabel": {"type": "string", "minLength": 1, "maxLength": 8},
+    "leftText": {"type": "string", "minLength": 1, "maxLength": 12},
+    "rightLabel": {"type": "string", "minLength": 1, "maxLength": 8},
+    "rightPrefix": {"type": "string", "maxLength": 8},
+    "rightHighlight": {"type": "string", "minLength": 1, "maxLength": 8},
+    "rightSuffix": {"type": "string", "maxLength": 8},
+    "bottomLabel": {"type": "string", "minLength": 1, "maxLength": 8},
+    "bottomLine1": {"type": "string", "minLength": 1, "maxLength": 14},
+    "bottomLine2": {"type": "string", "minLength": 1, "maxLength": 18},
+    "durationSeconds": {"type": "integer", "minimum": 4, "maximum": 10}
+  }
+}
