@@ -1,5 +1,5 @@
 interface:
-  display_name: "六六视频动效"
+  display_name: "LL Video Motion"
   short_description: "先确认动效拆分方案，再生成一个或多个本地短视频动效"
   default_prompt: "使用 $ll-video-motion 分析这段中文内容应制作几个动效，先给我确认方案，再开始生成。"
 policy:
