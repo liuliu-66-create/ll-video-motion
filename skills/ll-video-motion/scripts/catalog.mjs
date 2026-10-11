@@ -52,17 +52,34 @@ export const resolveProjectRoot = async () => {
 };
 
 const primaryPresetOverrides = {
-  'multi-point-list': 'presets/multi-point-03.json',
   'process-flow-zigzag': 'presets/process-flow-zigzag-03.json',
   'process-flow-journey': 'presets/process-flow-journey-03.json',
   'before-after-compare': 'presets/before-after-compare.json',
+  'concept-explainer': 'editor-prototype/radial-default-config.json',
+  'concept-topdown': 'editor-prototype/default-config.json',
   'key-conclusion': 'presets/key-conclusion.json',
 };
+
+const legacyStyleIds = {
+  'multi-point-torn-list': 'multi-point-list',
+  'multi-point-staggered-memo': 'multi-staggered',
+  'multi-point-stamp-label': 'multi-stamp',
+  'multi-point-index-tabs': 'multi-index',
+  'multi-point-burst-stickers': 'multi-burst',
+  'concept-explainer-radial': 'concept-explainer',
+  'concept-explainer-topdown': 'concept-topdown',
+  'key-conclusion-editorial-collage': 'key-editorial',
+  'dynamic-data-chart-category-bars': 'dynamic-data-chart',
+  'dynamic-data-chart-time-line': 'data-chart-time-line',
+  'dynamic-data-chart-qualitative-rise': 'data-chart-qualitative-rise',
+  'dynamic-data-chart-step-growth': 'data-chart-step-growth',
+};
+const canonicalStyleId = (styleId) => legacyStyleIds[styleId] ?? styleId;
 
 const makeStyle = (template, options = {}) => ({
   styleId: options.styleId ?? template.id,
   templateId: template.id,
-  variantId: options.variantId ?? null,
+  variantId: options.variantId ?? template.variant ?? null,
   name: options.name ?? template.name,
   status: 'validated',
   family: template.family ?? template.id,
@@ -84,92 +101,6 @@ export const buildCatalog = async (requestedProjectRoot) => {
   const styles = [];
 
   for (const template of library.templates.filter((item) => item.status === 'validated')) {
-    if (template.id === 'multi-point-list') {
-      styles.push(makeStyle(template, {
-        styleId: 'multi-point-torn-list',
-        variantId: 'torn-list',
-        name: '多点列举／撕纸列表',
-        preset: 'presets/multi-point-03.json',
-      }));
-      const nested = [
-        ['staggeredMemoVariant', 'multi-point-staggered-memo', '多点列举／错落便签'],
-        ['stampLabelVariant', 'multi-point-stamp-label', '多点列举／印章标签'],
-        ['indexTabsVariant', 'multi-point-index-tabs', '多点列举／索引标签'],
-        ['burstStickersVariant', 'multi-point-burst-stickers', '多点列举／爆发贴纸'],
-      ];
-      for (const [property, styleId, name] of nested) {
-        const variant = template[property];
-        if (variant?.status !== 'validated') continue;
-        styles.push(makeStyle(template, {
-          styleId,
-          variantId: variant.id,
-          name,
-          composition: variant.composition,
-          preset: variant.preset,
-          layout: variant.layout,
-          preview: variant.preview,
-        }));
-      }
-      continue;
-    }
-
-    if (template.id === 'concept-explainer') {
-      styles.push(makeStyle(template, {
-        styleId: 'concept-explainer-radial',
-        variantId: 'radial',
-        name: '概念解释／中心放射',
-        composition: 'ConceptExplainerRadialGithub',
-        preset: 'editor-prototype/radial-default-config.json',
-        preview: template.variantPreviews?.radial,
-      }));
-      styles.push(makeStyle(template, {
-        styleId: 'concept-explainer-topdown',
-        variantId: 'topdown',
-        name: '概念解释／上下拆解',
-        composition: 'ConceptExplainerTopDownGithub',
-        preset: 'editor-prototype/default-config.json',
-        preview: template.variantPreviews?.topdown,
-      }));
-      continue;
-    }
-
-    if (template.id === 'key-conclusion') {
-      styles.push(makeStyle(template, {
-        styleId: 'key-conclusion',
-        variantId: 'central-quote',
-        name: '重点结论／中央结论',
-        preset: 'presets/key-conclusion.json',
-      }));
-      for (const variant of template.variantPreviews ?? []) {
-        if (variant.status !== 'validated') continue;
-        styles.push(makeStyle(template, {
-          styleId: `key-conclusion-${variant.id}`,
-          variantId: variant.id,
-          name: '重点结论／编辑拼贴',
-          composition: variant.composition,
-          preset: variant.preset,
-          layout: variant.layout,
-          preview: variant.preview,
-        }));
-      }
-      continue;
-    }
-
-    if (template.id === 'dynamic-data-chart') {
-      for (const variant of template.variantPreviews ?? []) {
-        if (variant.status !== 'validated') continue;
-        styles.push(makeStyle(template, {
-          styleId: `dynamic-data-chart-${variant.id}`,
-          variantId: variant.id,
-          name: `动态数据图表／${variant.id}`,
-          composition: template.composition,
-          preset: variant.preset,
-          preview: variant.preview,
-        }));
-      }
-      continue;
-    }
-
     styles.push(makeStyle(template));
   }
 
@@ -178,7 +109,7 @@ export const buildCatalog = async (requestedProjectRoot) => {
 
 export const findStyle = async (styleId, projectRoot) => {
   const catalog = await buildCatalog(projectRoot);
-  const style = catalog.styles.find((item) => item.styleId === styleId);
+  const style = catalog.styles.find((item) => item.styleId === canonicalStyleId(styleId));
   if (!style) throw new Error(`没有找到已验证模板：${styleId}`);
   return {catalog, style};
 };
@@ -195,7 +126,7 @@ const runCli = async () => {
   const catalog = await buildCatalog();
   const requestedId = arg('--id');
   if (requestedId) {
-    const style = catalog.styles.find((item) => item.styleId === requestedId);
+    const style = catalog.styles.find((item) => item.styleId === canonicalStyleId(requestedId));
     if (!style) throw new Error(`没有找到已验证模板：${requestedId}`);
     process.stdout.write(`${JSON.stringify(absoluteStyle(style, catalog.projectRoot), null, 2)}\n`);
     return;
@@ -203,6 +134,18 @@ const runCli = async () => {
 
   if (args.includes('--check')) {
     const rootSource = await readFile(resolve(catalog.projectRoot, 'src', 'Root.tsx'), 'utf8');
+    const playgroundSource = await readFile(resolve(catalog.projectRoot, 'playground', 'index.html'), 'utf8');
+    const displayRows = [...playgroundSource.matchAll(/\{id:"([^"]+)", category:"[^"]+"[^\n]*?code:"([^"]+)"[^\n]*?src:"([^"]+)"[^\n]*?poster:"([^"]+)"/g)]
+      .map(([, styleId, code, sample, poster]) => ({
+        templateId: code.startsWith('chapter-transition /') ? styleId : code.split(' / ')[0],
+        sample,
+        poster,
+      }));
+    const catalogIds = new Set(catalog.styles.map((style) => style.templateId));
+    const displayIds = displayRows.map((row) => row.templateId);
+    const unregisteredDisplayItems = displayIds.filter((id) => !catalogIds.has(id));
+    const undisplayedTemplates = [...catalogIds].filter((id) => !displayIds.includes(id));
+    const duplicateDisplayTemplates = displayIds.filter((id, index) => displayIds.indexOf(id) !== index);
     const missing = [];
     const invalidPresets = [];
     for (const style of catalog.styles) {
@@ -219,14 +162,23 @@ const runCli = async () => {
         }
       }
     }
+    for (const row of displayRows) {
+      for (const relativePath of [row.sample, row.poster]) {
+        if (!existsSync(resolve(catalog.projectRoot, 'playground', relativePath))) missing.push(`playground:${relativePath}`);
+      }
+    }
     const duplicateStyleIds = catalog.styles
       .map((style) => style.styleId)
       .filter((styleId, index, all) => all.indexOf(styleId) !== index);
     const result = {
-      ok: missing.length === 0 && invalidPresets.length === 0 && duplicateStyleIds.length === 0,
+      ok: missing.length === 0 && invalidPresets.length === 0 && duplicateStyleIds.length === 0 && displayRows.length === catalog.styles.length && unregisteredDisplayItems.length === 0 && undisplayedTemplates.length === 0 && duplicateDisplayTemplates.length === 0,
       projectRoot: catalog.projectRoot,
       validatedLibraryTemplates: catalog.library.templates.filter((item) => item.status === 'validated').length,
       callableStyles: catalog.styles.length,
+      displayItems: displayRows.length,
+      unregisteredDisplayItems,
+      undisplayedTemplates,
+      duplicateDisplayTemplates,
       missing,
       invalidPresets,
       duplicateStyleIds,

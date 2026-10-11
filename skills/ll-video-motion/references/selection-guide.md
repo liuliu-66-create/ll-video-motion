@@ -1,14 +1,14 @@
 # 模板选择指南
 
-先判断内容关系，再从对应范围选择具体模板。模板的最终可用状态以 `node scripts/catalog.mjs --check` 为准。
+先判断内容关系，再从对应范围选择具体模板。模板的最终可用状态以 `node scripts/catalog.mjs --check` 为准。下列 ID 与 36 项登记表一一对应；旧配置使用的样式 ID 仍可调用。
 
 ## 列举与归纳
 
-- `multi-point-torn-list`：2～6 个并列要点，最通用。
-- `multi-point-staggered-memo`：并列要点需要便签式层次。
-- `multi-point-stamp-label`：短词或短句，需要印章标签感。
-- `multi-point-index-tabs`：4～6 个条目，需要清晰索引感。
-- `multi-point-burst-stickers`：多个极短关键词，需要更强节奏感。
+- `multi-point-list`：2～6 个并列要点，最通用。
+- `multi-staggered`：并列要点需要便签式层次。
+- `multi-stamp`：短词或短句，需要印章标签感。
+- `multi-index`：4～6 个条目，需要清晰索引感。
+- `multi-burst`：多个极短关键词，需要更强节奏感。
 
 不要用于有明确先后顺序的步骤。
 
@@ -28,9 +28,9 @@
 - `cost-accumulation`：投入不断增加，同时资源不断消耗。
 - `transfer-decay`：资源经过多层传递后逐级减少。
 - `timeline-events`：3～5 个带时间标签的事件。
-- `dynamic-data-chart-time-line`：有真实时间轴和真实数值。
-- `dynamic-data-chart-qualitative-rise`：只有方向性上升，不声称精确数值。
-- `dynamic-data-chart-step-growth`：阶段式增长。
+- `data-chart-time-line`：有真实时间轴和真实数值。
+- `data-chart-qualitative-rise`：只有方向性上升，不声称精确数值。
+- `data-chart-step-growth`：阶段式增长。
 
 ## 关系与结构
 
@@ -41,15 +41,15 @@
 
 ## 概念与解释
 
-- `concept-explainer-radial`：一个核心对象，从三个不完全平行的角度向外解释。
-- `concept-explainer-topdown`：一个概念、一句定义，再拆成三个平行组成部分或特点。
+- `concept-explainer`：一个核心对象，从三个不完全平行的角度向外解释。
+- `concept-topdown`：一个概念、一句定义，再拆成三个平行组成部分或特点。
 
 ## 重点与数据
 
 - `key-conclusion`：只突出一句核心结论。
-- `key-conclusion-editorial-collage`：核心结论需要更丰富的编辑拼贴构图。
+- `key-editorial`：核心结论需要更丰富的编辑拼贴构图。
 - `big-number-card`：只有一个核心真实数字，并辅以前后对照。
-- `dynamic-data-chart-category-bars`：多个类别的真实数值比较。
+- `dynamic-data-chart`：多个类别的真实数值比较。
 
 不得为了使用数据模板而编造数据。
 

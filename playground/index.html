@@ -75,6 +75,13 @@
       letter-spacing: -0.04em;
     }
 
+    .catalog-summary {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
     .search-wrap {
       padding: 16px 18px;
       border-bottom: 1px solid var(--line);
@@ -617,6 +624,7 @@
       <header class="brand">
         <p class="eyebrow">Motion Library</p>
         <h1>视频动效素材库</h1>
+        <p id="catalog-summary" class="catalog-summary"></p>
       </header>
 
       <div class="search-wrap">
@@ -680,18 +688,22 @@
       {id:"chapter-transition-split-newspaper", category:"transition", choice:"样式 B", name:"黑白拼接旧报纸", code:"chapter-transition / split-newspaper", src:"samples/chapter-transition-split-newspaper-dynamic-v1.mp4", poster:"posters/chapter-transition-split-newspaper-styleframe-v1.png", description:"左侧黑报纸、右侧米白旧报纸纵向拼接；数字从左滑入，标题随后从左向右露出。", bestFor:"需要左右分区清楚、切换直接的章节过渡", avoidFor:"正文解释、顶部目录进度条、完整成片", editable:"章节编号、章节标题"},
 
       {id:"multi-torn", category:"list", name:"撕纸清单", code:"multi-point-list / torn-list", src:"samples/multi-point-03-torn-v1.mp4", poster:"posters/multi-point-03-torn-v1.jpg", description:"用撕纸条逐项出现，层级直接，适合口播中的并列重点。", bestFor:"2—6 个同级观点、功能或结果", avoidFor:"严格步骤、时间节点、层级关系", editable:"文字、图标、项目数量、时长"},
-      {id:"multi-staggered", category:"list", name:"错落便签", code:"multi-point-list / staggered-memo", src:"samples/multi-point-staggered-memo-v1.mp4", poster:"posters/multi-point-staggered-memo-v1.jpg", description:"多张便签错落展开，画面更松弛，适合有手账感的并列信息。", bestFor:"3—5 个并列想法、心得、提醒", avoidFor:"需要精确对齐的数据或步骤", editable:"文字、项目数量、时长"},
-      {id:"multi-stamp", category:"list", name:"印章标签墙", code:"multi-point-list / stamp-label-wall", src:"samples/multi-point-stamp-label-03-v2.mp4", poster:"posters/multi-point-stamp-label-03-v2.jpg", description:"短标签像印章一样依次盖出，节奏紧凑，强调关键词。", bestFor:"3—5 个短关键词、标签或特征", avoidFor:"长句、复杂解释", editable:"关键词、数量、时长"},
-      {id:"multi-index", category:"list", name:"索引卡", code:"multi-point-list / index-tabs", src:"samples/multi-point-index-tabs-04-v1.mp4", poster:"posters/multi-point-index-tabs-04-v1.jpg", description:"用编号索引建立清楚秩序，适合同级内容需要被快速扫读的场景。", bestFor:"3—5 个编号要点、栏目、功能", avoidFor:"无顺序感的自由拼贴", editable:"编号、文字、数量、时长"},
-      {id:"multi-burst", category:"list", name:"爆炸贴纸", code:"multi-point-list / burst-stickers", src:"samples/multi-point-burst-stickers-05-v4.mp4", poster:"posters/multi-point-burst-stickers-05-v4.jpg", description:"多个重点以爆炸贴纸出现，情绪更强，适合密集但短促的信息。", bestFor:"3—5 个强提醒、卖点、结果", avoidFor:"严肃数据、长段说明", editable:"关键词、数量、时长"},
+      {id:"multi-staggered", category:"list", name:"错落便签", code:"multi-staggered / staggered-memo", src:"samples/multi-point-staggered-memo-v1.mp4", poster:"posters/multi-point-staggered-memo-v1.jpg", description:"多张便签错落展开，画面更松弛，适合有手账感的并列信息。", bestFor:"3—5 个并列想法、心得、提醒", avoidFor:"需要精确对齐的数据或步骤", editable:"文字、项目数量、时长"},
+      {id:"multi-stamp", category:"list", name:"印章标签墙", code:"multi-stamp / stamp-label-wall", src:"samples/multi-point-stamp-label-03-v2.mp4", poster:"posters/multi-point-stamp-label-03-v2.jpg", description:"短标签像印章一样依次盖出，节奏紧凑，强调关键词。", bestFor:"3—5 个短关键词、标签或特征", avoidFor:"长句、复杂解释", editable:"关键词、数量、时长"},
+      {id:"multi-index", category:"list", name:"索引卡", code:"multi-index / index-tabs", src:"samples/multi-point-index-tabs-04-v1.mp4", poster:"posters/multi-point-index-tabs-04-v1.jpg", description:"用编号索引建立清楚秩序，适合同级内容需要被快速扫读的场景。", bestFor:"3—5 个编号要点、栏目、功能", avoidFor:"无顺序感的自由拼贴", editable:"编号、文字、数量、时长"},
+      {id:"multi-burst", category:"list", name:"爆炸贴纸", code:"multi-burst / burst-stickers", src:"samples/multi-point-burst-stickers-05-v4.mp4", poster:"posters/multi-point-burst-stickers-05-v4.jpg", description:"多个重点以爆炸贴纸出现，情绪更强，适合密集但短促的信息。", bestFor:"3—5 个强提醒、卖点、结果", avoidFor:"严肃数据、长段说明", editable:"关键词、数量、时长"},
       {id:"final-quality-stamp-board", category:"list", name:"检查结果列点", code:"final-quality-stamp-board / five-passed-check-results", src:"samples/final-quality-stamp-board-dynamic-v1.mp4", poster:"posters/final-quality-stamp-board-candidate-v3.png", description:"五个检查结果分别进入，大勾清楚标记已通过项目，最后只用一个结论章收尾。", bestFor:"交付前检查、发布前核对、验收结果、完成状态", avoidFor:"普通观点列举、未完成任务、混合成功与失败状态", editable:"标题、五个检查项目、检查结果、最终结论"},
 
       {id:"flow-zigzag", category:"process", name:"折线流程", code:"process-flow-zigzag", src:"samples/process-flow-zigzag-03-v1.mp4", poster:"posters/process-flow-zigzag-03-v1.jpg", description:"节点沿折线路径推进，强调明确的先后顺序。", bestFor:"2—6 个执行步骤", avoidFor:"真实时间跨度、并列观点", editable:"步骤文字、数量、时长"},
       {id:"flow-journey", category:"process", name:"弯曲旅程", code:"process-flow-journey", src:"samples/process-flow-journey-03-v1.mp4", poster:"posters/process-flow-journey-03-v1.jpg", description:"弯曲路线带出旅程感，比普通步骤更强调从起点走到结果。", bestFor:"2—6 个阶段、成长过程、实践路线", avoidFor:"精确时间轴、上下级关系", editable:"阶段文字、数量、时长"},
       {id:"timeline-collage", category:"process", name:"剪贴画时间线", code:"timeline-events / collage", src:"samples/timeline-collage-dynamic-v2.mp4", poster:"posters/timeline-collage-dynamic-v2.jpg", description:"事件沿真实时间轴依次出现，剪贴画只负责视觉风格。", bestFor:"3—5 个时间节点、里程碑、事件经过", avoidFor:"没有时间信息的普通步骤", editable:"时间、标题、图片、出现时刻、时长"},
+      {id:"audio-alignment-timeline", category:"process", name:"音频对齐时间线", code:"audio-alignment-timeline / three-clip-alignment", src:"samples/audio-alignment-timeline-dynamic-v1.mp4", poster:"posters/audio-alignment-timeline-candidate-v1.png", description:"以声音为时间基准，让字幕和画面节点逐句落在对应位置。", bestFor:"配音与分镜、字幕或素材的对齐说明", avoidFor:"只有事件先后、没有声音对齐关系的普通时间线", editable:"标题、强调语、3—4 个声音与画面节点"},
       {id:"stage-status-board", category:"process", name:"阶段状态板", code:"stage-status-board / straight-progress-ribbon", src:"samples/stage-status-board-dynamic-v1.mp4", poster:"posters/stage-status-board-candidate-v3.png", description:"一条连续进度带呈现项目状态，当前阶段在原位置放大，并由右上角滚动数字同步显示完成度。", bestFor:"4—5 个项目阶段、已完成／进行中／待开始状态", avoidFor:"只需要说明先后顺序的普通流程、真实时间轴", editable:"标题、阶段名称、阶段说明、状态"},
 
       {id:"before-after", category:"compare", name:"前后对比", code:"before-after-compare / collage-arrow", src:"samples/before-after-compare-v1.mp4", poster:"posters/before-after-compare-v1.jpg", description:"左右两侧形成明确的改变前与改变后。", bestFor:"前后变化、问题与结果、旧方法与新方法", avoidFor:"多阶段过程、超过两方的比较", editable:"两侧标题、说明、时长"},
+      {id:"data-chart-time-line", category:"compare", name:"时间趋势折线图", code:"data-chart-time-line / time-line", src:"samples/data-chart-time-line-v1.mp4", poster:"posters/data-chart-time-line-v1.png", description:"沿真实时间节点逐段绘制折线，让数值变化可见。", bestFor:"有真实时间和数值的数据趋势", avoidFor:"没有时间数据、需要编造日期或刻度的内容", editable:"标题、真实时间、类别数值、结论"},
+      {id:"data-chart-qualitative-rise", category:"compare", name:"定性上升曲线", code:"data-chart-qualitative-rise / qualitative-rise", src:"samples/data-chart-qualitative-rise-v1.mp4", poster:"posters/data-chart-qualitative-rise-v1.png", description:"用趋势线和连续箭头表达上升方向，不显示虚构数值。", bestFor:"有明确上升趋势但没有具体数值的变化", avoidFor:"要求精确读数或比较多个真实数值的内容", editable:"标题、阶段标签、趋势结论"},
+      {id:"data-chart-step-growth", category:"compare", name:"阶梯式增长", code:"data-chart-step-growth / step-growth", src:"samples/data-chart-step-growth-v1.mp4", poster:"posters/data-chart-step-growth-v1.png", description:"撕纸台阶按阶段依次搭起，突出逐步增长。", bestFor:"有明确先后阶段的增长过程", avoidFor:"没有阶段关系的普通列举或时间统计", editable:"标题、阶段名称、阶段内容、结论"},
       {id:"opposing-trends", category:"compare", name:"双向趋势", code:"opposing-trends", src:"samples/opposing-trends-dynamic-v1.mp4", poster:"posters/opposing-trends-dynamic-v1.jpg", description:"两组内容向相反方向变化，重点是趋势，不是精确数据。", bestFor:"一升一降、此消彼长、方向相反", avoidFor:"精确图表、时间线", editable:"两侧标题、说明、资源数量、配图"},
       {id:"cost-accumulation", category:"compare", name:"投入累积／资源消耗", code:"cost-accumulation", src:"samples/cost-accumulation-dynamic-v2.mp4", poster:"posters/cost-accumulation-dynamic-v2.jpg", description:"一侧不断累积投入，另一侧资源持续减少，突出反复成本。", bestFor:"持续投入、资源损耗、重复劳动", avoidFor:"普通二选一、无累积过程的对比", editable:"两侧标题、说明、资源数量、配图"},
       {id:"imbalance-scale", category:"compare", name:"不对等天平", code:"imbalance-scale / vintage-torn-paper-balance", src:"samples/imbalance-scale-dynamic-v1.mp4", poster:"posters/imbalance-scale-candidate-v1.png", description:"怀旧撕纸天平向一侧倾斜，直接表现两端关系不对等；数值标签随托盘一起进入。", bestFor:"付出与回报、权利与责任、投入与收益的失衡", avoidFor:"普通前后变化、等权二选一、单一数字变化", editable:"标题、两端标签、两端数值、结论"},
@@ -702,10 +714,11 @@
       {id:"input-convergence", category:"relation", name:"输入汇聚", code:"input-convergence / short-paper-ribbons", src:"samples/input-convergence-dynamic-v1.mp4", poster:"posters/input-convergence-candidate-v1.png", description:"多个输入标签各自延伸出短而弯曲的撕纸带，在很短的过渡距离内共同汇入唯一结果。", bestFor:"多种素材、条件、人员或数据共同形成一个结果", avoidFor:"普通并列列举、顺序流程、逐级递减", editable:"标题、3—6 个输入项、输入图标、最终结果"},
 
       {id:"concept-radial", category:"concept", name:"放射式解释", code:"concept-explainer / radial", src:"samples/concept-explainer-radial-github-v2.mp4", poster:"posters/concept-explainer-radial-github-v2.jpg", description:"中央用一张撕纸突出核心概念，外围用纯文字解释三个角度。", bestFor:"核心概念加 2—4 个解释点", avoidFor:"严格因果链、步骤流程", editable:"核心标题、定义、解释点、时长"},
-      {id:"concept-topdown", category:"concept", name:"上下拆解式", code:"concept-explainer / topdown", src:"samples/concept-explainer-topdown-github-v1.mp4", poster:"posters/concept-explainer-topdown-github-v1.jpg", description:"上方说明概念，下方用一整张撕纸规整承载三个组成部分。", bestFor:"定义、组成、从总到分的解释", avoidFor:"时间过程、普通并列清单", editable:"核心标题、定义、解释点、时长"},
+      {id:"concept-topdown", category:"concept", name:"上下拆解式", code:"concept-topdown / single-sheet-topdown", src:"samples/concept-explainer-topdown-github-v1.mp4", poster:"posters/concept-explainer-topdown-github-v1.jpg", description:"上方说明概念，下方用一整张撕纸规整承载三个组成部分。", bestFor:"定义、组成、从总到分的解释", avoidFor:"时间过程、普通并列清单", editable:"核心标题、定义、解释点、时长"},
 
       {id:"key-central", category:"emphasis", name:"中央结论", code:"key-conclusion / central-quote", src:"samples/key-conclusion-v1.mp4", poster:"posters/key-conclusion-v1.jpg", description:"把一句核心判断放到画面中央，观众一眼看到结论。", bestFor:"单句结论、警示、段落转折", avoidFor:"多个观点、复杂数据", editable:"标签、主句、补充说明、时长"},
-      {id:"key-editorial", category:"emphasis", name:"编辑拼贴结论", code:"key-conclusion / editorial-collage", src:"samples/key-conclusion-editorial-collage-v2.mp4", poster:"posters/key-conclusion-editorial-collage-v2.jpg", description:"用编辑拼贴构图强调一句观点，视觉更有杂志感。", bestFor:"金句、观点、需要画面气质的重点", avoidFor:"长段解释、步骤流程", editable:"标签、主句、补充说明、时长"},
+      {id:"key-editorial", category:"emphasis", name:"编辑拼贴结论", code:"key-editorial / editorial-collage", src:"samples/key-conclusion-editorial-collage-v2.mp4", poster:"posters/key-conclusion-editorial-collage-v2.jpg", description:"用编辑拼贴构图强调一句观点，视觉更有杂志感。", bestFor:"金句、观点、需要画面气质的重点", avoidFor:"长段解释、步骤流程", editable:"标签、主句、补充说明、时长"},
+      {id:"data-chart-category-bars", category:"emphasis", name:"分类柱状图", code:"dynamic-data-chart / category-bars", src:"samples/data-chart-category-bars-v1.mp4", poster:"posters/data-chart-category-bars-v1.png", description:"多个类别的柱体依次生长，真实数值同步出现。", bestFor:"有真实数值的类别比较", avoidFor:"没有数值、只想表达趋势方向的内容", editable:"标题、类别、真实数值、单位、结论"},
       {id:"big-number-card", category:"emphasis", name:"大数字卡", code:"big-number-card / editorial-big-number", src:"samples/big-number-card-dynamic-v1.mp4", poster:"posters/big-number-card-candidate-v2.png", description:"核心数字占据主要视觉面积，左侧只保留必要的口径说明和小型撕纸数据对照。", bestFor:"一个百分比、倍数或关键指标及其简短解释", avoidFor:"多个同级数字、完整图表、普通金句", editable:"标题、数据口径、核心数字与单位、前后对照、脚注"},
 
       {id:"dual-choice", category:"decision", name:"双选择", code:"dual-choice / torn-keywords", src:"samples/dual-choice-torn-v2.mp4", poster:"posters/dual-choice-candidate-v4.png", description:"问题与说明直接排版，分岔路径把观众带向两个等权方向；只有左右核心选项使用真实撕纸强调。", bestFor:"二选一、两种并列状态、两个行动方向", avoidFor:"前后变化、优劣结论、多于两个选项", editable:"问题标题、左右说明、左右主选项、图片、连接词、底部提示、时长"},
@@ -716,6 +729,10 @@
       {id:"typical-shot-filmstrip", category:"evidence", name:"典型镜头胶片条", code:"typical-shot-filmstrip / three-frame-torn-filmstrip", src:"samples/typical-shot-filmstrip-dynamic-v1.mp4", poster:"posters/typical-shot-filmstrip-candidate-v2.png", description:"三种代表性镜头沿撕纸胶片依次进入，说明一条视频如何由不同画面类型组合而成。", bestFor:"三类典型镜头、成片结构、视觉叙事组成", avoidFor:"单个录屏、步骤流程、时间线、超过三种镜头", editable:"标题、短标签、三张镜头图片、镜头名称、底部总结"},
       {id:"storyboard-work-order", category:"evidence", name:"分镜工作单", code:"storyboard-work-order / single-shot-work-order", src:"samples/storyboard-work-order-dynamic-v2.mp4", poster:"posters/storyboard-work-order-candidate-v2.png", description:"把一个镜头的编号、时间码、画面、字幕、执行说明和所需素材整理成可直接执行的工作单。", bestFor:"单镜头规划、分镜交接、声音到画面的执行说明", avoidFor:"并列观点、项目状态、时间线、多个完整分镜", editable:"标题、镜头编号、时间码、镜头图片、字幕、画面说明、素材标签"}
     ];
+
+    const templateIdForStyle = (style) => style.code.startsWith("chapter-transition /") ? style.id : style.code.split(" / ")[0];
+    const templateCount = new Set(styles.map(templateIdForStyle)).size;
+    document.querySelector("#catalog-summary").textContent = `${templateCount} 个已验证模板 · ${styles.length} 种展示样式`;
 
     const nav = document.querySelector("#template-nav");
     const search = document.querySelector("#search");

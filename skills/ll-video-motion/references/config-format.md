@@ -17,7 +17,7 @@
 
 ## 字段规则
 
-- `templateId`：必填，必须使用 `node scripts/catalog.mjs --summary` 返回的 `styleId`。
+- `templateId`：必填，使用 `node scripts/catalog.mjs` 列出的 `styleId`。
 - `selectionReason`：建议填写，只用于记录选择理由，不会传进视频。
 - `props`：需要替换的模板字段。未填写的字段会沿用该模板已确认的默认预设。
 - `outputPath`：可选，指定 MP4 绝对路径；普通生成不必填写。

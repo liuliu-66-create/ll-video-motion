@@ -103,50 +103,10 @@
           "duration"
         ],
         "validatedVariants": [
-          "torn-list",
-          "staggered-memo",
-          "stamp-label-wall",
-          "index-tabs",
-          "burst-stickers"
+          "torn-list"
         ]
       },
       "preview": "previews/multi-point-03-torn-v1.mp4",
-      "staggeredMemoVariant": {
-        "id": "staggered-memo",
-        "composition": "MultiPointStaggeredMemo",
-        "preset": "presets/multi-point-staggered-03.json",
-        "layout": "template-rules/multi-point-list/staggered-memo-layout.json",
-        "reference": "previews/multi-point-staggered-reference-v1.png",
-        "preview": "previews/multi-point-staggered-memo-v1.mp4",
-        "status": "validated"
-      },
-      "stampLabelVariant": {
-        "id": "stamp-label-wall",
-        "composition": "MultiPointStampLabel",
-        "preset": "presets/multi-point-stamp-label-03.json",
-        "layout": "template-rules/multi-point-list/stamp-label-layout.json",
-        "reference": "previews/multi-point-stamp-label-wall-reference-v1.png",
-        "preview": "previews/multi-point-stamp-label-03-v2.mp4",
-        "status": "validated"
-      },
-      "indexTabsVariant": {
-        "id": "index-tabs",
-        "composition": "MultiPointIndexTabs",
-        "preset": "presets/multi-point-index-tabs-04.json",
-        "layout": "template-rules/multi-point-list/index-tabs-layout.json",
-        "reference": "previews/multi-point-index-tabs-reference-v1.png",
-        "preview": "previews/multi-point-index-tabs-04-v1.mp4",
-        "status": "validated"
-      },
-      "burstStickersVariant": {
-        "id": "burst-stickers",
-        "composition": "MultiPointBurstStickers",
-        "preset": "presets/multi-point-burst-stickers-05.json",
-        "layout": "template-rules/multi-point-list/burst-stickers-layout.json",
-        "reference": "previews/multi-point-burst-stickers-reference-v1.png",
-        "preview": "previews/multi-point-burst-stickers-05-v4.mp4",
-        "status": "validated"
-      },
       "rules": "DESIGN_RULES.md",
       "templateRules": "template-rules/multi-point-list/TEMPLATE.md",
       "layout": "template-rules/multi-point-list/layout.json",
@@ -163,7 +123,181 @@
         "timeline",
         "hierarchy",
         "cycle"
-      ]
+      ],
+      "variant": "torn-list",
+      "preset": "presets/multi-point-03.json"
+    },
+    {
+      "id": "multi-staggered",
+      "name": "错落便签",
+      "composition": "MultiPointStaggeredMemo",
+      "supports": {
+        "itemCount": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "editable": [
+          "items[].text",
+          "items[].icon",
+          "duration"
+        ],
+        "validatedVariants": [
+          "staggered-memo"
+        ]
+      },
+      "preview": "previews/multi-point-staggered-memo-v1.mp4",
+      "rules": "DESIGN_RULES.md",
+      "templateRules": "template-rules/multi-point-list/TEMPLATE.md",
+      "layout": "template-rules/multi-point-list/staggered-memo-layout.json",
+      "status": "validated",
+      "family": "multi-point",
+      "layoutPattern": "staggered-memo",
+      "semanticTypes": [
+        "parallel-points",
+        "checklist",
+        "multiple-results"
+      ],
+      "avoidFor": [
+        "ordered-process",
+        "timeline",
+        "hierarchy",
+        "cycle"
+      ],
+      "variant": "staggered-memo",
+      "preset": "presets/multi-point-staggered-03.json",
+      "sourceTemplateId": "multi-point-list"
+    },
+    {
+      "id": "multi-stamp",
+      "name": "印章标签墙",
+      "composition": "MultiPointStampLabel",
+      "supports": {
+        "itemCount": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "editable": [
+          "items[].text",
+          "items[].icon",
+          "duration"
+        ],
+        "validatedVariants": [
+          "stamp-label-wall"
+        ]
+      },
+      "preview": "previews/multi-point-stamp-label-03-v2.mp4",
+      "rules": "DESIGN_RULES.md",
+      "templateRules": "template-rules/multi-point-list/TEMPLATE.md",
+      "layout": "template-rules/multi-point-list/stamp-label-layout.json",
+      "status": "validated",
+      "family": "multi-point",
+      "layoutPattern": "stamp-label-wall",
+      "semanticTypes": [
+        "parallel-points",
+        "checklist",
+        "multiple-results"
+      ],
+      "avoidFor": [
+        "ordered-process",
+        "timeline",
+        "hierarchy",
+        "cycle"
+      ],
+      "variant": "stamp-label-wall",
+      "preset": "presets/multi-point-stamp-label-03.json",
+      "sourceTemplateId": "multi-point-list"
+    },
+    {
+      "id": "multi-index",
+      "name": "索引卡",
+      "composition": "MultiPointIndexTabs",
+      "supports": {
+        "itemCount": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "editable": [
+          "items[].text",
+          "items[].icon",
+          "duration"
+        ],
+        "validatedVariants": [
+          "index-tabs"
+        ]
+      },
+      "preview": "previews/multi-point-index-tabs-04-v1.mp4",
+      "rules": "DESIGN_RULES.md",
+      "templateRules": "template-rules/multi-point-list/TEMPLATE.md",
+      "layout": "template-rules/multi-point-list/index-tabs-layout.json",
+      "status": "validated",
+      "family": "multi-point",
+      "layoutPattern": "index-tabs",
+      "semanticTypes": [
+        "parallel-points",
+        "checklist",
+        "multiple-results"
+      ],
+      "avoidFor": [
+        "ordered-process",
+        "timeline",
+        "hierarchy",
+        "cycle"
+      ],
+      "variant": "index-tabs",
+      "preset": "presets/multi-point-index-tabs-04.json",
+      "sourceTemplateId": "multi-point-list"
+    },
+    {
+      "id": "multi-burst",
+      "name": "爆炸贴纸",
+      "composition": "MultiPointBurstStickers",
+      "supports": {
+        "itemCount": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "editable": [
+          "items[].text",
+          "items[].icon",
+          "duration"
+        ],
+        "validatedVariants": [
+          "burst-stickers"
+        ]
+      },
+      "preview": "previews/multi-point-burst-stickers-05-v4.mp4",
+      "rules": "DESIGN_RULES.md",
+      "templateRules": "template-rules/multi-point-list/TEMPLATE.md",
+      "layout": "template-rules/multi-point-list/burst-stickers-layout.json",
+      "status": "validated",
+      "family": "multi-point",
+      "layoutPattern": "burst-stickers",
+      "semanticTypes": [
+        "parallel-points",
+        "checklist",
+        "multiple-results"
+      ],
+      "avoidFor": [
+        "ordered-process",
+        "timeline",
+        "hierarchy",
+        "cycle"
+      ],
+      "variant": "burst-stickers",
+      "preset": "presets/multi-point-burst-stickers-05.json",
+      "sourceTemplateId": "multi-point-list"
     },
     {
       "id": "process-flow-zigzag",
@@ -293,19 +427,10 @@
           "topdown"
         ],
         "validatedVariants": [
-          "clean-radial",
-          "single-sheet-topdown"
+          "clean-radial"
         ]
       },
-      "variantPreviews": {
-        "radial": "previews/concept-explainer-radial-github-v2.mp4",
-        "topdown": "previews/concept-explainer-topdown-github-v1.mp4"
-      },
       "preview": "previews/concept-explainer-radial-github-v2.mp4",
-      "variantStyleframes": {
-        "radial": "previews/concept-explainer-radial-github-styleframe-v3.png",
-        "topdown": "previews/concept-explainer-topdown-github-styleframe-v2.png"
-      },
       "rules": "DESIGN_RULES.md",
       "templateRules": "template-rules/concept-explainer/TEMPLATE.md",
       "layout": "template-rules/concept-explainer/layout.json",
@@ -321,7 +446,53 @@
         "timeline",
         "ordered-process",
         "price-erosion"
-      ]
+      ],
+      "variant": "clean-radial"
+    },
+    {
+      "id": "concept-topdown",
+      "name": "上下拆解式",
+      "composition": "ConceptExplainerTopDownGithub",
+      "supports": {
+        "itemCount": [
+          2,
+          3,
+          4
+        ],
+        "editable": [
+          "core.title",
+          "core.definition",
+          "points[].title",
+          "duration"
+        ],
+        "variants": [
+          "radial",
+          "topdown"
+        ],
+        "validatedVariants": [
+          "single-sheet-topdown"
+        ]
+      },
+      "preview": "previews/concept-explainer-topdown-github-v1.mp4",
+      "rules": "DESIGN_RULES.md",
+      "templateRules": "template-rules/concept-explainer/TEMPLATE.md",
+      "layout": "template-rules/concept-explainer/layout.json",
+      "status": "validated",
+      "family": "concept-explainer",
+      "layoutPattern": "single-sheet-topdown",
+      "semanticTypes": [
+        "core-and-explanations",
+        "definition",
+        "concept-breakdown"
+      ],
+      "avoidFor": [
+        "timeline",
+        "ordered-process",
+        "price-erosion"
+      ],
+      "variant": "single-sheet-topdown",
+      "sourceTemplateId": "concept-explainer",
+      "styleframe": "previews/concept-explainer-topdown-github-styleframe-v2.png"
     },
     {
       "id": "key-conclusion",
@@ -339,23 +510,11 @@
           "duration"
         ],
         "validatedVariants": [
-          "central-quote",
-          "editorial-collage"
+          "central-quote"
         ]
       },
       "preview": "previews/key-conclusion-v1.mp4",
       "styleframe": "previews/key-conclusion-styleframe-v1.png",
-      "variantPreviews": [
-        {
-          "id": "editorial-collage",
-          "composition": "KeyConclusionEditorialCollage",
-          "preset": "presets/key-conclusion-editorial-collage.json",
-          "layout": "template-rules/key-conclusion/editorial-collage-layout.json",
-          "reference": "references/key-conclusion/reference-01-editorial-collage.png",
-          "preview": "previews/key-conclusion-editorial-collage-v2.mp4",
-          "status": "validated"
-        }
-      ],
       "rules": "DESIGN_RULES.md",
       "templateRules": "template-rules/key-conclusion/TEMPLATE.md",
       "layout": "template-rules/key-conclusion/layout.json",
@@ -371,7 +530,49 @@
         "multiple-points",
         "timeline",
         "hierarchy"
-      ]
+      ],
+      "variant": "central-quote"
+    },
+    {
+      "id": "key-editorial",
+      "name": "编辑拼贴结论",
+      "composition": "KeyConclusionEditorialCollage",
+      "supports": {
+        "itemCount": [
+          1
+        ],
+        "editable": [
+          "label",
+          "firstPart",
+          "secondPart",
+          "note",
+          "duration"
+        ],
+        "validatedVariants": [
+          "editorial-collage"
+        ]
+      },
+      "preview": "previews/key-conclusion-editorial-collage-v2.mp4",
+      "styleframe": "previews/key-conclusion-styleframe-v1.png",
+      "rules": "DESIGN_RULES.md",
+      "templateRules": "template-rules/key-conclusion/TEMPLATE.md",
+      "layout": "template-rules/key-conclusion/editorial-collage-layout.json",
+      "status": "validated",
+      "family": "key-conclusion",
+      "layoutPattern": "editorial-collage",
+      "semanticTypes": [
+        "single-conclusion",
+        "warning",
+        "transition"
+      ],
+      "avoidFor": [
+        "multiple-points",
+        "timeline",
+        "hierarchy"
+      ],
+      "variant": "editorial-collage",
+      "sourceTemplateId": "key-conclusion",
+      "preset": "presets/key-conclusion-editorial-collage.json"
     },
     {
       "id": "transfer-decay",
@@ -396,7 +597,11 @@
       "rules": "template-rules/transfer-decay/TEMPLATE.md",
       "layout": "template-rules/transfer-decay/layout.json",
       "supports": {
-        "itemCount": [3, 4, 5],
+        "itemCount": [
+          3,
+          4,
+          5
+        ],
         "editable": [
           "title",
           "subtitle",
@@ -406,7 +611,9 @@
           "levels[].resourceCount",
           "lossLabels[]"
         ],
-        "validatedVariants": ["banknote-loss-chain"],
+        "validatedVariants": [
+          "banknote-loss-chain"
+        ],
         "candidateVariants": []
       },
       "review": {
@@ -438,14 +645,20 @@
       "rules": "template-rules/layered-pyramid/TEMPLATE.md",
       "layout": "template-rules/layered-pyramid/layout.json",
       "supports": {
-        "itemCount": [3, 4, 5],
+        "itemCount": [
+          3,
+          4,
+          5
+        ],
         "editable": [
           "title",
           "subtitle",
           "levels[].title",
           "levels[].note"
         ],
-        "validatedVariants": ["torn-paper-foundation-stack"],
+        "validatedVariants": [
+          "torn-paper-foundation-stack"
+        ],
         "candidateVariants": []
       },
       "review": {
@@ -539,7 +752,9 @@
       "rules": "template-rules/imbalance-scale/TEMPLATE.md",
       "layout": "template-rules/imbalance-scale/layout.json",
       "supports": {
-        "itemCount": [2],
+        "itemCount": [
+          2
+        ],
         "editable": [
           "headline",
           "leftLabel",
@@ -548,7 +763,9 @@
           "rightValue",
           "conclusion"
         ],
-        "validatedVariants": ["torn-paper-vintage-balance"],
+        "validatedVariants": [
+          "torn-paper-vintage-balance"
+        ],
         "candidateVariants": []
       },
       "review": {
@@ -580,7 +797,9 @@
       "rules": "template-rules/big-number-card/TEMPLATE.md",
       "layout": "template-rules/big-number-card/layout.json",
       "supports": {
-        "itemCount": [1],
+        "itemCount": [
+          1
+        ],
         "editable": [
           "headline",
           "context",
@@ -595,7 +814,9 @@
           "afterValue",
           "footnote"
         ],
-        "validatedVariants": ["editorial-big-number"],
+        "validatedVariants": [
+          "editorial-big-number"
+        ],
         "candidateVariants": []
       },
       "review": {
@@ -627,14 +848,19 @@
       "rules": "template-rules/stage-status-board/TEMPLATE.md",
       "layout": "template-rules/stage-status-board/layout.json",
       "supports": {
-        "itemCount": [4, 5],
+        "itemCount": [
+          4,
+          5
+        ],
         "editable": [
           "headline",
           "stages[].title",
           "stages[].note",
           "stages[].status"
         ],
-        "validatedVariants": ["straight-progress-ribbon"],
+        "validatedVariants": [
+          "straight-progress-ribbon"
+        ],
         "candidateVariants": []
       },
       "review": {
@@ -666,14 +892,21 @@
       "rules": "template-rules/input-convergence/TEMPLATE.md",
       "layout": "template-rules/input-convergence/layout.json",
       "supports": {
-        "itemCount": [3, 4, 5, 6],
+        "itemCount": [
+          3,
+          4,
+          5,
+          6
+        ],
         "editable": [
           "headline",
           "inputs[].label",
           "inputs[].mark",
           "outputLabel"
         ],
-        "validatedVariants": ["short-paper-ribbon-convergence"],
+        "validatedVariants": [
+          "short-paper-ribbon-convergence"
+        ],
         "candidateVariants": []
       },
       "review": {
@@ -705,7 +938,10 @@
       "rules": "template-rules/audio-alignment-timeline/TEMPLATE.md",
       "layout": "template-rules/audio-alignment-timeline/layout.json",
       "supports": {
-        "itemCount": [3, 4],
+        "itemCount": [
+          3,
+          4
+        ],
         "editable": [
           "headline",
           "emphasis",
@@ -713,7 +949,10 @@
           "clips[].line",
           "clips[].shot"
         ],
-        "validatedVariants": ["three-clip-alignment", "four-clip-alignment"],
+        "validatedVariants": [
+          "three-clip-alignment",
+          "four-clip-alignment"
+        ],
         "candidateVariants": []
       },
       "review": {
@@ -743,44 +982,15 @@
       "preset": "presets/data-chart-category-bars.json",
       "styleframe": "previews/data-chart-category-bars-v1.png",
       "preview": "previews/data-chart-category-bars-v1.mp4",
-      "variantPreviews": [
-        {
-          "id": "category-bars",
-          "semanticCategory": "重点与数据",
-          "preset": "presets/data-chart-category-bars.json",
-          "styleframe": "previews/data-chart-category-bars-v1.png",
-          "preview": "previews/data-chart-category-bars-v1.mp4",
-          "status": "validated"
-        },
-        {
-          "id": "time-line",
-          "semanticCategory": "对比与变化",
-          "preset": "presets/data-chart-time-line.json",
-          "styleframe": "previews/data-chart-time-line-v1.png",
-          "preview": "previews/data-chart-time-line-v1.mp4",
-          "status": "validated"
-        },
-        {
-          "id": "qualitative-rise",
-          "semanticCategory": "对比与变化",
-          "preset": "presets/data-chart-qualitative-rise.json",
-          "styleframe": "previews/data-chart-qualitative-rise-v1.png",
-          "preview": "previews/data-chart-qualitative-rise-v1.mp4",
-          "status": "validated"
-        },
-        {
-          "id": "step-growth",
-          "semanticCategory": "对比与变化",
-          "preset": "presets/data-chart-step-growth.json",
-          "styleframe": "previews/data-chart-step-growth-v1.png",
-          "preview": "previews/data-chart-step-growth-v1.mp4",
-          "status": "validated"
-        }
-      ],
       "rules": "template-rules/dynamic-data-chart/TEMPLATE.md",
       "layout": "template-rules/dynamic-data-chart/layout.json",
       "supports": {
-        "itemCount": [4, 5, 6, 7],
+        "itemCount": [
+          4,
+          5,
+          6,
+          7
+        ],
         "editable": [
           "variant",
           "headline",
@@ -792,9 +1002,164 @@
           "conclusion"
         ],
         "validatedVariants": [
-          "category-bars",
-          "time-line",
-          "qualitative-rise",
+          "category-bars"
+        ],
+        "candidateVariants": []
+      },
+      "review": {
+        "staticDesign": "user-confirmed",
+        "dynamic": "user-confirmed",
+        "confirmedAt": "2026-09-30"
+      },
+      "variant": "category-bars"
+    },
+    {
+      "id": "data-chart-time-line",
+      "name": "时间趋势折线图",
+      "family": "data-chart",
+      "layoutPattern": "time-line",
+      "semanticTypes": [
+        "category-value-comparison",
+        "time-series-trend",
+        "qualitative-direction",
+        "stage-growth"
+      ],
+      "avoidFor": [
+        "invented-data",
+        "invented-time-axis",
+        "ordinary-process"
+      ],
+      "status": "validated",
+      "composition": "DynamicDataChart",
+      "preset": "presets/data-chart-time-line.json",
+      "styleframe": "previews/data-chart-time-line-v1.png",
+      "preview": "previews/data-chart-time-line-v1.mp4",
+      "rules": "template-rules/dynamic-data-chart/TEMPLATE.md",
+      "layout": "template-rules/dynamic-data-chart/layout.json",
+      "supports": {
+        "itemCount": [
+          4,
+          5,
+          6,
+          7
+        ],
+        "editable": [
+          "variant",
+          "headline",
+          "eyebrow",
+          "unit",
+          "items[].label",
+          "items[].value",
+          "items[].displayValue",
+          "conclusion"
+        ],
+        "validatedVariants": [
+          "time-line"
+        ],
+        "candidateVariants": []
+      },
+      "review": {
+        "staticDesign": "user-confirmed",
+        "dynamic": "user-confirmed",
+        "confirmedAt": "2026-09-30"
+      },
+      "variant": "time-line",
+      "sourceTemplateId": "dynamic-data-chart"
+    },
+    {
+      "id": "data-chart-qualitative-rise",
+      "name": "定性上升曲线",
+      "family": "data-chart",
+      "layoutPattern": "qualitative-rise",
+      "semanticTypes": [
+        "category-value-comparison",
+        "time-series-trend",
+        "qualitative-direction",
+        "stage-growth"
+      ],
+      "avoidFor": [
+        "invented-data",
+        "invented-time-axis",
+        "ordinary-process"
+      ],
+      "status": "validated",
+      "composition": "DynamicDataChart",
+      "preset": "presets/data-chart-qualitative-rise.json",
+      "styleframe": "previews/data-chart-qualitative-rise-v1.png",
+      "preview": "previews/data-chart-qualitative-rise-v1.mp4",
+      "rules": "template-rules/dynamic-data-chart/TEMPLATE.md",
+      "layout": "template-rules/dynamic-data-chart/layout.json",
+      "supports": {
+        "itemCount": [
+          4,
+          5,
+          6,
+          7
+        ],
+        "editable": [
+          "variant",
+          "headline",
+          "eyebrow",
+          "unit",
+          "items[].label",
+          "items[].value",
+          "items[].displayValue",
+          "conclusion"
+        ],
+        "validatedVariants": [
+          "qualitative-rise"
+        ],
+        "candidateVariants": []
+      },
+      "review": {
+        "staticDesign": "user-confirmed",
+        "dynamic": "user-confirmed",
+        "confirmedAt": "2026-09-30"
+      },
+      "variant": "qualitative-rise",
+      "sourceTemplateId": "dynamic-data-chart"
+    },
+    {
+      "id": "data-chart-step-growth",
+      "name": "阶梯式增长",
+      "family": "data-chart",
+      "layoutPattern": "step-growth",
+      "semanticTypes": [
+        "category-value-comparison",
+        "time-series-trend",
+        "qualitative-direction",
+        "stage-growth"
+      ],
+      "avoidFor": [
+        "invented-data",
+        "invented-time-axis",
+        "ordinary-process"
+      ],
+      "status": "validated",
+      "composition": "DynamicDataChart",
+      "preset": "presets/data-chart-step-growth.json",
+      "styleframe": "previews/data-chart-step-growth-v1.png",
+      "preview": "previews/data-chart-step-growth-v1.mp4",
+      "rules": "template-rules/dynamic-data-chart/TEMPLATE.md",
+      "layout": "template-rules/dynamic-data-chart/layout.json",
+      "supports": {
+        "itemCount": [
+          4,
+          5,
+          6,
+          7
+        ],
+        "editable": [
+          "variant",
+          "headline",
+          "eyebrow",
+          "unit",
+          "items[].label",
+          "items[].value",
+          "items[].displayValue",
+          "conclusion"
+        ],
+        "validatedVariants": [
           "step-growth"
         ],
         "candidateVariants": []
@@ -803,7 +1168,9 @@
         "staticDesign": "user-confirmed",
         "dynamic": "user-confirmed",
         "confirmedAt": "2026-09-30"
-      }
+      },
+      "variant": "step-growth",
+      "sourceTemplateId": "dynamic-data-chart"
     },
     {
       "id": "screen-recording-transition",
@@ -915,7 +1282,9 @@
       "rules": "template-rules/order-hierarchy/TEMPLATE.md",
       "layout": "template-rules/order-hierarchy/layout.json",
       "supports": {
-        "itemCount": [3],
+        "itemCount": [
+          3
+        ],
         "editable": [
           "levels[].title",
           "levels[].note",
@@ -925,7 +1294,9 @@
           "connectionAtSeconds[]",
           "duration"
         ],
-        "validatedVariants": ["chinese-production-chain"],
+        "validatedVariants": [
+          "chinese-production-chain"
+        ],
         "candidateVariants": []
       },
       "review": {
@@ -957,7 +1328,9 @@
       "rules": "template-rules/material-photo-desk/TEMPLATE.md",
       "layout": "template-rules/material-photo-desk/layout.json",
       "supports": {
-        "itemCount": [4],
+        "itemCount": [
+          4
+        ],
         "editable": [
           "headline",
           "status",
@@ -972,7 +1345,9 @@
           "stampTop",
           "stampBottom"
         ],
-        "validatedVariants": ["four-material-desk-collage"],
+        "validatedVariants": [
+          "four-material-desk-collage"
+        ],
         "candidateVariants": []
       },
       "review": {
@@ -1005,7 +1380,9 @@
       "rules": "template-rules/typical-shot-filmstrip/TEMPLATE.md",
       "layout": "template-rules/typical-shot-filmstrip/layout.json",
       "supports": {
-        "itemCount": [3],
+        "itemCount": [
+          3
+        ],
         "editable": [
           "headline",
           "eyebrow",
@@ -1014,7 +1391,9 @@
           "shots[].imageSrc",
           "shots[].objectPosition"
         ],
-        "validatedVariants": ["three-frame-torn-filmstrip"],
+        "validatedVariants": [
+          "three-frame-torn-filmstrip"
+        ],
         "candidateVariants": []
       },
       "review": {
@@ -1047,8 +1426,14 @@
       "rules": "template-rules/storyboard-work-order/TEMPLATE.md",
       "layout": "template-rules/storyboard-work-order/layout.json",
       "supports": {
-        "itemCount": [1],
-        "materialCount": [2, 3, 4],
+        "itemCount": [
+          1
+        ],
+        "materialCount": [
+          2,
+          3,
+          4
+        ],
         "editable": [
           "headline",
           "shotNumber",
@@ -1058,7 +1443,9 @@
           "visual",
           "materials[]"
         ],
-        "validatedVariants": ["single-shot-work-order"],
+        "validatedVariants": [
+          "single-shot-work-order"
+        ],
         "candidateVariants": []
       },
       "review": {
@@ -1091,15 +1478,21 @@
       "rules": "template-rules/final-quality-stamp-board/TEMPLATE.md",
       "layout": "template-rules/final-quality-stamp-board/layout.json",
       "supports": {
-        "itemCount": [5],
-        "status": ["passed"],
+        "itemCount": [
+          5
+        ],
+        "status": [
+          "passed"
+        ],
         "editable": [
           "headline",
           "items[].label",
           "items[].value",
           "conclusion"
         ],
-        "validatedVariants": ["five-passed-check-results"],
+        "validatedVariants": [
+          "five-passed-check-results"
+        ],
         "candidateVariants": []
       },
       "review": {
@@ -1133,14 +1526,18 @@
       "rules": "template-rules/action-prerequisite-card/TEMPLATE.md",
       "layout": "template-rules/action-prerequisite-card/layout.json",
       "supports": {
-        "questionCount": [1],
+        "questionCount": [
+          1
+        ],
         "editable": [
           "headline",
           "timingLabel",
           "prompt",
           "question"
         ],
-        "validatedVariants": ["single-action-prerequisite-question"],
+        "validatedVariants": [
+          "single-action-prerequisite-question"
+        ],
         "candidateVariants": []
       },
       "review": {
@@ -1154,8 +1551,17 @@
       "name": "章节过渡／黑报纸撕纸标题",
       "family": "chapter-transition",
       "layoutPattern": "dark-newspaper-number-and-horizontal-torn-title",
-      "semanticTypes": ["chapter-transition", "section-title", "video-structure-transition"],
-      "avoidFor": ["body-copy", "ordered-process", "top-progress-bar", "full-video-edit"],
+      "semanticTypes": [
+        "chapter-transition",
+        "section-title",
+        "video-structure-transition"
+      ],
+      "avoidFor": [
+        "body-copy",
+        "ordered-process",
+        "top-progress-bar",
+        "full-video-edit"
+      ],
       "status": "validated",
       "composition": "ChapterTransitionDarkBanner",
       "preset": "presets/chapter-transition-dark-banner.json",
@@ -1164,19 +1570,37 @@
       "rules": "template-rules/chapter-transition/TEMPLATE.md",
       "layout": "template-rules/chapter-transition/dark-banner-layout.json",
       "supports": {
-        "editable": ["sectionNumber", "title"],
-        "validatedVariants": ["dark-newspaper-torn-banner"],
+        "editable": [
+          "sectionNumber",
+          "title"
+        ],
+        "validatedVariants": [
+          "dark-newspaper-torn-banner"
+        ],
         "candidateVariants": []
       },
-      "review": {"staticDesign": "user-confirmed", "dynamic": "user-confirmed", "confirmedAt": "2026-10-07"}
+      "review": {
+        "staticDesign": "user-confirmed",
+        "dynamic": "user-confirmed",
+        "confirmedAt": "2026-10-07"
+      }
     },
     {
       "id": "chapter-transition-split-newspaper",
       "name": "章节过渡／黑白拼接旧报纸",
       "family": "chapter-transition",
       "layoutPattern": "split-newspaper-number-slide-and-title-reveal",
-      "semanticTypes": ["chapter-transition", "section-title", "video-structure-transition"],
-      "avoidFor": ["body-copy", "ordered-process", "top-progress-bar", "full-video-edit"],
+      "semanticTypes": [
+        "chapter-transition",
+        "section-title",
+        "video-structure-transition"
+      ],
+      "avoidFor": [
+        "body-copy",
+        "ordered-process",
+        "top-progress-bar",
+        "full-video-edit"
+      ],
       "status": "validated",
       "composition": "ChapterTransitionSplitNewspaper",
       "preset": "presets/chapter-transition-split-newspaper.json",
@@ -1185,11 +1609,20 @@
       "rules": "template-rules/chapter-transition/TEMPLATE.md",
       "layout": "template-rules/chapter-transition/split-newspaper-layout.json",
       "supports": {
-        "editable": ["sectionNumber", "title"],
-        "validatedVariants": ["split-newspaper-direct-reveal"],
+        "editable": [
+          "sectionNumber",
+          "title"
+        ],
+        "validatedVariants": [
+          "split-newspaper-direct-reveal"
+        ],
         "candidateVariants": []
       },
-      "review": {"staticDesign": "user-confirmed", "dynamic": "user-confirmed", "confirmedAt": "2026-10-07"}
+      "review": {
+        "staticDesign": "user-confirmed",
+        "dynamic": "user-confirmed",
+        "confirmedAt": "2026-10-07"
+      }
     }
   ],
   "schemaVersion": 2,
@@ -1211,5 +1644,6 @@
       "SpriteCrop",
       "motion"
     ]
-  }
+  },
+  "catalogVersion": "video-edit-36-selectable-templates-v1"
 }

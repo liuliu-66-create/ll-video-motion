@@ -61,6 +61,7 @@ node skills/ll-video-motion/scripts/editor_server.mjs
 - `DESIGN_RULES.md`：所有模板共同遵守的视觉、定位和检查规则。
 - `template-rules`：每个已通过模板自己的用途、输入、布局、动效、调用和验收规则。
 - `library.json`：模板登记表，记录用途、可替换内容和预览位置。
+- 登记表与 Playground 均为 36 项，每个展示项有独立的可调用模板 ID；部分项目共用底层 Remotion 组件。
 - `public/assets`：背景、撕纸、印章等公共素材。
 - `src/templates`：真正生成画面的动效模板。
 - `presets`：只需修改文字的示例配置。
