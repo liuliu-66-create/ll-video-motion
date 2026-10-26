@@ -33,6 +33,25 @@ class ProgressTests(unittest.TestCase):
         self.assertEqual(paint.frame(22).getpixel((600,3))[:3],(255,255,255))
         self.assertEqual(paint.frame(60).getpixel((1400,3)),(172,217,93,255))
 
+    def test_promoted_styles_follow_unequal_subtitle_ranges(self):
+        for style in ['dot-line','short-segments','text-leading']:
+            with self.subTest(style=style):
+                plan=self.plan({**self.cfg,'styleId':style,'barHeight':96,'fontSize':25})
+                paint=progress.Painter(plan)
+                self.assertEqual(paint.frame(0).size,(1440,plan['outputHeight']))
+                self.assertEqual(paint.frame(60).getpixel((0,0))[3],0)
+                self.assertEqual(paint.job['chapters'][1]['startFrame'],22)
+                if style=='short-segments':
+                    self.assertEqual(paint.frame(21).getpixel((455,21))[:3],tuple(plan['appearance']['fillColor']))
+                    self.assertEqual(paint.frame(21).getpixel((600,21))[:3],(250,250,250))
+
+    def test_text_color_does_not_thicken_antialiased_edges(self):
+        plan=self.plan({**self.cfg,'styleId':'text-leading','barHeight':96,'fontSize':25})
+        paint=progress.Painter(plan)
+        before=paint.frame(0).getchannel('A').crop((150,0,360,32))
+        after=paint.frame(60).getchannel('A').crop((150,0,360,32))
+        self.assertIsNone(ImageChops.difference(before,after).getbbox())
+
     def test_reject_gap_overlap_omitted_ending_and_wrong_text(self):
         bad = []
         cfg = copy.deepcopy(self.cfg); cfg['chapters'][1]['startCue']=30; bad.append(cfg)

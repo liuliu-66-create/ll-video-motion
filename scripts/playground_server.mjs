@@ -19,14 +19,16 @@ const jsonResponse = (res, status, data) => {
   res.writeHead(status, {'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store'});
   res.end(JSON.stringify(data));
 };
-const renderColor = (hex, styleId) => {
-  const cacheKey = styleId + ':' + hex;
+const renderColor = (hex, styleId, fontSize) => {
+  const cacheKey = styleId + ':' + hex + ':' + (fontSize || 'default');
   if (renders.has(cacheKey)) return renders.get(cacheKey);
   const job = renderQueue.then(async () => {
     await mkdir(generatedRoot, {recursive:true});
     const out = await mkdtemp(resolve(generatedRoot, hex + '-'));
     await new Promise((ok, fail) => {
-      const p = spawn(process.platform === 'win32' ? 'py' : 'python3', ['-X','utf8',resolve(scriptDir,'progress_preview.py'),'--color','#'+hex,'--style',styleId,'--out',out], {windowsHide:true,stdio:['ignore','ignore','pipe']});
+      const args = ['-B','-X','utf8',resolve(scriptDir,'progress_preview.py'),'--color','#'+hex,'--style',styleId,'--out',out];
+      if (fontSize !== undefined) args.push('--font-size',String(fontSize));
+      const p = spawn(process.platform === 'win32' ? 'py' : 'python3', args, {windowsHide:true,stdio:['ignore','ignore','pipe']});
       let stderr = '';
       p.stderr.on('data', c => { stderr = (stderr + c).slice(-2000); });
       const timer = setTimeout(() => {p.kill(); fail(new Error('生成超时，请重试'));}, 60000);
@@ -34,7 +36,7 @@ const renderColor = (hex, styleId) => {
       p.on('close', code => {clearTimeout(timer); code === 0 ? ok() : fail(new Error(stderr || '生成失败'));});
     });
     const key = out.slice(generatedRoot.length + 1);
-    return {preview:`/progress-generated/${key}/preview.webm`,poster:`/progress-generated/${key}/preview-alpha.png`,thumbnail:`/progress-generated/${key}/preview.png`,download:`/progress-generated/${key}/progress-strip.mov`,color:'#'+hex,styleId};
+    return {preview:`/progress-generated/${key}/preview.webm`,poster:`/progress-generated/${key}/preview-alpha.png`,thumbnail:`/progress-generated/${key}/preview.png`,download:`/progress-generated/${key}/progress-strip.mov`,color:'#'+hex,styleId,fontSize};
   });
   renderQueue = job.catch(() => {});
   renders.set(cacheKey,job);
@@ -75,8 +77,11 @@ const server = createServer(async (req, res) => {
       try {data = JSON.parse(body);} catch {return jsonResponse(res,400,{error:'无效请求'});}
       if (typeof data?.color !== 'string' || !/^#[0-9a-fA-F]{6}$/.test(data.color)) return jsonResponse(res,400,{error:'请输入 #RRGGBB 色号'});
       const styleId = data.styleId || 'soft-white-green';
-      if (!['soft-white-green','walking-leading'].includes(styleId)) return jsonResponse(res,400,{error:'未知进度条样式'});
-      try {return jsonResponse(res,200,await renderColor(data.color.slice(1).toLowerCase(),styleId));}
+      if (!['soft-white-green','walking-leading','dot-line','short-segments','text-leading'].includes(styleId)) return jsonResponse(res,400,{error:'未知进度条样式'});
+      const adjustable = ['dot-line','short-segments','text-leading'].includes(styleId);
+      const fontSize = adjustable ? (data.fontSize ?? { 'dot-line':24,'short-segments':26,'text-leading':25 }[styleId]) : undefined;
+      if (adjustable && (!Number.isInteger(fontSize) || fontSize < 18 || fontSize > 72)) return jsonResponse(res,400,{error:'字号请输入 18–72 之间的整数'});
+      try {return jsonResponse(res,200,await renderColor(data.color.slice(1).toLowerCase(),styleId,fontSize));}
       catch (error) {return jsonResponse(res,500,{error:error.message});}
     }
     const requested = decodeURIComponent(url.pathname === '/' ? '/index.html' : url.pathname);

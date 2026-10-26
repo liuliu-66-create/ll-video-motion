@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "styles": [
     {
       "id": "soft-white-green",
@@ -72,6 +72,124 @@
         57
       ],
       "previewBackground": "#F2E9DC",
+      "character": "liuliu"
+    },
+    {
+      "id": "dot-line",
+      "name": "圆点连线",
+      "status": "validated",
+      "previewImage": "dot-line.png",
+      "sampleVideo": "dot-line.mov",
+      "description": "细线连接圆点，随章节进度变色。",
+      "defaultWidth": 1440,
+      "defaultCanvasHeight": 1080,
+      "defaultBarHeight": 96,
+      "fontSizeRatio": 0.25,
+      "baseColor": [
+        255,
+        255,
+        255
+      ],
+      "baseOpacity": 0.431372549,
+      "edgeOpacityRatio": 0.772727273,
+      "fillColor": [
+        242,
+        185,
+        209
+      ],
+      "fillOpacity": 1,
+      "textColor": [
+        255,
+        255,
+        255
+      ],
+      "outlineColor": [
+        50,
+        53,
+        57
+      ],
+      "previewBackground": "#27313f",
+      "renderer": "chapter-lines",
+      "kind": "dots",
+      "defaultFontSize": 24
+    },
+    {
+      "id": "short-segments",
+      "name": "分段短线",
+      "status": "validated",
+      "previewImage": "short-segments.png",
+      "sampleVideo": "short-segments.mov",
+      "description": "每章一根短线，本段进度逐步填色。",
+      "defaultWidth": 1440,
+      "defaultCanvasHeight": 1080,
+      "defaultBarHeight": 96,
+      "fontSizeRatio": 0.2708333333333333,
+      "baseColor": [
+        255,
+        255,
+        255
+      ],
+      "baseOpacity": 0.431372549,
+      "edgeOpacityRatio": 0.772727273,
+      "fillColor": [
+        245,
+        246,
+        153
+      ],
+      "fillOpacity": 1,
+      "textColor": [
+        255,
+        255,
+        255
+      ],
+      "outlineColor": [
+        50,
+        53,
+        57
+      ],
+      "previewBackground": "#27313f",
+      "renderer": "chapter-lines",
+      "kind": "segments",
+      "defaultFontSize": 26
+    },
+    {
+      "id": "text-leading",
+      "name": "文字领走",
+      "status": "validated",
+      "previewImage": "text-leading.png",
+      "sampleVideo": "text-leading.mov",
+      "description": "文字随进度变色，人物在前沿领走；小字号无描边，四倍精度绘制。",
+      "defaultWidth": 1440,
+      "defaultCanvasHeight": 1080,
+      "defaultBarHeight": 96,
+      "fontSizeRatio": 0.2604166666666667,
+      "baseColor": [
+        255,
+        255,
+        255
+      ],
+      "baseOpacity": 0.431372549,
+      "edgeOpacityRatio": 0.772727273,
+      "fillColor": [
+        145,
+        205,
+        236
+      ],
+      "fillOpacity": 1,
+      "textColor": [
+        255,
+        255,
+        255
+      ],
+      "outlineColor": [
+        50,
+        53,
+        57
+      ],
+      "previewBackground": "#27313f",
+      "renderer": "chapter-lines",
+      "kind": "text",
+      "defaultFontSize": 25,
       "character": "liuliu"
     }
   ]

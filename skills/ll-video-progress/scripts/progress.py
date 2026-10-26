@@ -145,6 +145,9 @@ def load_plan(config_path):
         plan['walkFps'] = integer(cfg.get('walkFps',10),'walkFps',1,30)
     elif cfg.get('characterFrames'):
         raise ValueError('Choose the walking-leading style to replace a character')
+    if style.get('renderer') == 'chapter-lines':
+        from chapter_styles import ChapterPainter
+        ChapterPainter(plan)
     return plan
 
 
@@ -183,6 +186,12 @@ class BasePainter:
 
 
 class Painter:
+    def __new__(cls,plan):
+        if plan['appearance'].get('renderer') == 'chapter-lines':
+            from chapter_styles import ChapterPainter
+            return ChapterPainter(plan)
+        return super().__new__(cls)
+
     def __init__(self,plan):
         self.p = plan
         self.base = BasePainter(plan)
