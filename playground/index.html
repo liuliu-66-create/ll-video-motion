@@ -490,12 +490,6 @@
       background: #24221f;
     }
 
-    .compare-card.is-progress img {
-      aspect-ratio: 1440 / 64;
-      object-fit: contain;
-      background: #F2E9DC;
-    }
-
     .compare-card span {
       display: block;
       padding: 9px 10px 10px;
@@ -528,41 +522,6 @@
       color: var(--muted);
       font-size: 11px;
     }
-
-    .main.is-progress { grid-template-rows: auto auto auto; align-content: start; gap: 20px; }
-    .main.is-progress .stage-wrap { place-items: start center; }
-    .stage.is-progress { aspect-ratio: auto; border-radius: 4px; background: #807c75; }
-    .compare-card.is-progress img { background: #807c75; }
-    .stage.is-progress video { height:auto; background:transparent; object-position:top; }
-
-    .overlay-download {
-      display: inline-block;
-      margin-top: 12px;
-      color: var(--accent);
-      font-size: 13px;
-      text-underline-offset: 4px;
-    }
-    .overlay-download[hidden] { display: none; }
-    .progress-controls {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 20px;
-      font-size: 13px;
-    }
-    .progress-controls input, .progress-controls button {
-      min-height: 36px;
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      background: #fffaf5;
-      color: var(--ink);
-    }
-    .progress-controls input[type="color"] { width: 48px; padding: 3px; cursor: pointer; }
-    .progress-controls input[type="text"] { width: 100px; padding: 7px 10px; font-family: Consolas, monospace; }
-    .progress-controls button { padding: 7px 14px; cursor: pointer; }
-    .progress-controls button:disabled { opacity: .55; cursor: wait; }
-    #progress-color-status { color: var(--muted); font-size: 12px; }
 
     @media (min-width: 821px) {
       body { overflow: auto; }
@@ -682,18 +641,6 @@
         <div class="title-group">
           <p id="category-label" class="template-id"></p>
           <h2 id="style-name"></h2>
-          <div id="progress-controls" class="progress-controls" hidden>
-            <label for="progress-color">进度颜色</label>
-            <input id="progress-color" type="color" value="#acd95d" aria-label="选择进度颜色" />
-            <label class="sr-only" for="progress-hex">颜色色号</label>
-            <input id="progress-hex" type="text" value="#acd95d" maxlength="7" spellcheck="false" aria-label="颜色色号" />
-            <label id="progress-font-control" hidden>字号 <input id="progress-font-size" type="number" min="18" max="72" step="1" value="25" aria-label="进度条字号" style="width:76px"> px</label>
-            <label>预览底色（不导出） <input id="progress-preview-bg" type="color" value="#807c75" aria-label="预览底色（不导出）"></label>
-            <button id="apply-progress-color" type="button">应用设置</button>
-            <button id="play-progress" type="button">播放 / 暂停</button>
-            <button id="restart-progress" type="button">重播</button>
-            <span id="progress-color-status" role="status" aria-live="polite"></span>
-          </div>
         </div>
       </header>
 
@@ -711,7 +658,6 @@
           <div class="inspection-cell"><span class="inspection-label">画面说明</span><p id="description"></p></div>
           <div class="inspection-cell"><span class="inspection-label">适合</span><p id="best-for"></p></div>
         </div>
-        <a id="download-overlay" class="overlay-download" hidden download>下载透明样片（8 秒 MOV）</a>
       </section>
 
       <section class="compare" aria-label="同类样式视觉对比">
@@ -727,7 +673,6 @@
   <script>
     const categories = [
       {id: "transition", name: "章节过渡"},
-      {id: "progress", name: "章节进度条"},
       {id: "list", name: "列举与归纳"},
       {id: "process", name: "流程与阶段"},
       {id: "compare", name: "对比与变化"},
@@ -741,11 +686,6 @@
     const styles = [
       {id:"chapter-transition-dark-banner", category:"transition", choice:"样式 A", name:"黑报纸撕纸标题", code:"chapter-transition / dark-banner", src:"samples/chapter-transition-dark-banner-dynamic-v1.mp4", poster:"posters/chapter-transition-dark-banner-styleframe-v1.png", description:"黑色旧报纸铺满画面，左侧大号章节数字，右侧用横向撕纸承载标题。", bestFor:"需要更强海报感、标题卡感的章节切换", avoidFor:"正文解释、顶部目录进度条、完整成片", editable:"章节编号、章节标题"},
       {id:"chapter-transition-split-newspaper", category:"transition", choice:"样式 B", name:"黑白拼接旧报纸", code:"chapter-transition / split-newspaper", src:"samples/chapter-transition-split-newspaper-dynamic-v1.mp4", poster:"posters/chapter-transition-split-newspaper-styleframe-v1.png", description:"左侧黑报纸、右侧米白旧报纸纵向拼接；数字从左滑入，标题随后从左向右露出。", bestFor:"需要左右分区清楚、切换直接的章节过渡", avoidFor:"正文解释、顶部目录进度条、完整成片", editable:"章节编号、章节标题"},
-      {id:"soft-white-green", category:"progress", name:"朦胧白底", code:"progress-bar / soft-white-green", src:"samples/progress-soft-white-green-preview.webm", poster:"posters/progress-soft-white-green.png", thumbnail:"posters/progress-soft-white-green-strip.png", download:"samples/progress-soft-white-green.mov", aspectRatio:"4 / 3", stripHeight:64, description:"直角横条、半透明白底、绿色逐章填充、白色章节文字和竖线分隔。可改任意进度颜色。条外透明，播放器底色只用于预览。", bestFor:"教程、录屏、知识口播的章节导航。当前为 8 秒选样片，正式进度条按字幕生成。"},
-      {id:"walking-leading", category:"progress", name:"人物领走", code:"progress-bar / walking-leading", src:"samples/progress-walking-leading-preview.webm", poster:"posters/progress-walking-leading.png", thumbnail:"posters/progress-walking-leading-strip.png", download:"samples/progress-walking-leading.mov", aspectRatio:"4 / 3", stripHeight:96, description:"沿用直角半透明白底横条，绿色逐章填充；人物与条等高，在填充前沿领走，向下最多露出半个条高。可换进度颜色，也可在制作时换人物。", bestFor:"需要卡通形象引导进度的教程和口播。当前为 8 秒选样片，下载窄条透明 MOV。"},
-      {id:"dot-line", category:"progress", name:"圆点连线", code:"progress-bar / dot-line", src:"samples/progress-dot-line-preview.webm", poster:"posters/progress-dot-line.png", thumbnail:"posters/progress-dot-line.png", download:"samples/progress-dot-line.mov", aspectRatio:"4 / 3", stripHeight:78, fontSize:24, previewBackground:"#27313f", defaultColor:"#f2b9d1", description:"细线连接圆点，连线与圆点随章节进度变色，文字紧贴圆点下方。可调整进度颜色和字号。", bestFor:"教程、录屏与知识口播的章节导航。当前为 8 秒选样片，下载窄条透明 MOV。"},
-      {id:"short-segments", category:"progress", name:"分段短线", code:"progress-bar / short-segments", src:"samples/progress-short-segments-preview.webm", poster:"posters/progress-short-segments.png", thumbnail:"posters/progress-short-segments.png", download:"samples/progress-short-segments.mov", aspectRatio:"4 / 3", stripHeight:70, fontSize:26, previewBackground:"#27313f", defaultColor:"#f5f699", description:"每章一根短线，分别随本段进度填色，文字紧贴短线下方。可调整进度颜色和字号。", bestFor:"教程、录屏与知识口播的章节导航。当前为 8 秒选样片，下载窄条透明 MOV。"},
-      {id:"text-leading", category:"progress", name:"文字领走", code:"progress-bar / text-leading", src:"samples/progress-text-leading-preview.webm", poster:"posters/progress-text-leading.png", thumbnail:"posters/progress-text-leading.png", download:"samples/progress-text-leading.mov", aspectRatio:"4 / 3", stripHeight:96, fontSize:25, previewBackground:"#27313f", defaultColor:"#91cdec", description:"文字随进度变色，默认人物在前沿领走。小字号使用轻字重与高精度绘制。可调整进度颜色和字号。", bestFor:"教程、录屏与知识口播的章节导航。当前为 8 秒选样片，下载窄条透明 MOV。"},
 
       {id:"multi-torn", category:"list", name:"撕纸清单", code:"multi-point-list / torn-list", src:"samples/multi-point-03-torn-v1.mp4", poster:"posters/multi-point-03-torn-v1.jpg", description:"用撕纸条逐项出现，层级直接，适合口播中的并列重点。", bestFor:"2—6 个同级观点、功能或结果", avoidFor:"严格步骤、时间节点、层级关系", editable:"文字、图标、项目数量、时长"},
       {id:"multi-staggered", category:"list", name:"错落便签", code:"multi-staggered / staggered-memo", src:"samples/multi-point-staggered-memo-v1.mp4", poster:"posters/multi-point-staggered-memo-v1.jpg", description:"多张便签错落展开，画面更松弛，适合有手账感的并列信息。", bestFor:"3—5 个并列想法、心得、提醒", avoidFor:"需要精确对齐的数据或步骤", editable:"文字、项目数量、时长"},
@@ -791,10 +731,8 @@
     ];
 
     const templateIdForStyle = (style) => style.code.startsWith("chapter-transition /") ? style.id : style.code.split(" / ")[0];
-    const motionMode = new URLSearchParams(window.location.search).get("mode") === "motion";
-    const progressStyles = styles.filter((style) => style.category === "progress");
-    const templateCount = new Set(styles.filter((style) => style.category !== "progress").map(templateIdForStyle)).size;
-    document.querySelector("#catalog-summary").textContent = motionMode ? `${templateCount} 个短动效模板` : new URLSearchParams(window.location.search).get("category") === "progress" ? `${progressStyles.length} 种已验证进度条样式` : `${templateCount} 个短动效模板 · ${progressStyles.length} 种进度条 · ${styles.length} 种展示样式`;
+    const templateCount = new Set(styles.map(templateIdForStyle)).size;
+    document.querySelector("#catalog-summary").textContent = `${templateCount} 个已验证模板 · ${styles.length} 种展示样式`;
 
     const nav = document.querySelector("#template-nav");
     const search = document.querySelector("#search");
@@ -810,29 +748,11 @@
     const compareTitleEl = document.querySelector("#compare-title");
     const compareHelpEl = document.querySelector("#compare-help");
     const compareGrid = document.querySelector("#compare-grid");
-    const downloadOverlay = document.querySelector("#download-overlay");
-    const progressControls = document.querySelector("#progress-controls");
-    const progressPicker = document.querySelector("#progress-color");
-    const progressHex = document.querySelector("#progress-hex");
-    const progressApply = document.querySelector("#apply-progress-color");
-    const progressStatus = document.querySelector("#progress-color-status");
-    const progressPreviewBg = document.querySelector("#progress-preview-bg");
-    progressPreviewBg.addEventListener("input", () => {document.querySelector(".stage.is-progress").style.background = progressPreviewBg.value;});
-    const progressFontControl = document.querySelector("#progress-font-control");
-    const progressFontSize = document.querySelector("#progress-font-size");
-    const progressVariants = new Map();
-    let colorRequest = 0;
-    let progressColor = "#acd95d";
-    try {
-      const saved = localStorage.getItem("ll-progress-fill-color");
-      if (/^#[0-9a-fA-F]{6}$/.test(saved || "")) progressColor = saved;
-    } catch {}
 
     const params = new URLSearchParams(window.location.search);
     const requestedCategory = params.get("category");
-    const filteredCategory = categories.some((category) => category.id === requestedCategory && (!motionMode || category.id !== "progress")) ? requestedCategory : null;
-    const availableStyles = motionMode ? styles.filter(style => style.category !== "progress") : styles;
-    const baseStyles = filteredCategory ? availableStyles.filter((style) => style.category === filteredCategory) : availableStyles;
+    const filteredCategory = categories.some((category) => category.id === requestedCategory) ? requestedCategory : null;
+    const baseStyles = filteredCategory ? styles.filter((style) => style.category === filteredCategory) : styles;
 
     let activeId = baseStyles[0]?.id ?? styles[0].id;
     let visibleStyles = [...baseStyles];
@@ -841,11 +761,6 @@
     if (filteredCategory === "transition") {
       document.querySelector(".brand h1").textContent = "选择过渡动画样式";
       search.placeholder = "搜索过渡样式";
-    } else if (filteredCategory === "progress") {
-      document.querySelector(".brand h1").textContent = "选择章节进度条";
-      document.querySelector(".eyebrow").textContent = "Video Progress";
-      document.title = "视频章节进度条样式库";
-      search.placeholder = "搜索进度条样式";
     }
 
     const categoryName = (id) => categories.find((category) => category.id === id)?.name ?? id;
@@ -862,7 +777,6 @@
       }
 
       categories.forEach((category) => {
-        if (motionMode && category.id === "progress") return;
         if (filteredCategory && category.id !== filteredCategory) return;
         const items = visibleStyles.filter((style) => style.category === category.id);
         const isSearching = Boolean(search.value.trim());
@@ -916,7 +830,7 @@
     };
 
     const renderComparison = (categoryId) => {
-      const items = availableStyles.filter((style) => style.category === categoryId);
+      const items = styles.filter((style) => style.category === categoryId);
       compareTitleEl.textContent = `${categoryName(categoryId)} · ${items.length} 种视觉样式`;
       compareHelpEl.textContent = "点击缩略图切换样片";
       compareGrid.innerHTML = "";
@@ -929,11 +843,10 @@
       items.forEach((style) => {
         const button = document.createElement("button");
         button.type = "button";
-        button.className = `compare-card${style.category === "progress" ? " is-progress" : ""}`;
+        button.className = "compare-card";
         button.dataset.id = style.id;
         button.setAttribute("aria-selected", String(style.id === activeId));
-        const variant = progressVariants.get(style.id);
-        button.innerHTML = `<img style="${style.category === 'progress' ? 'aspect-ratio:1440/'+style.stripHeight : ''}" src="${variant?.thumbnail || style.thumbnail || style.poster}" alt="${style.name}样片缩略图" loading="lazy"><span>${style.choice ? `${style.choice}｜` : ""}${style.name}</span>`;
+        button.innerHTML = `<img src="${style.poster}" alt="${style.name}样片缩略图" loading="lazy"><span>${style.choice ? `${style.choice}｜` : ""}${style.name}</span>`;
         button.addEventListener("click", () => selectStyle(style.id, true));
         compareGrid.appendChild(button);
       });
@@ -944,29 +857,10 @@
       if (!style) return;
 
       activeId = id;
-      colorRequest++;
-      const media = progressVariants.get(id) || style;
-      styleNameEl.textContent = media.color ? `${style.name} · 自选颜色` : `${style.choice ? `${style.choice}｜` : ""}${style.name}`;
+      styleNameEl.textContent = `${style.choice ? `${style.choice}｜` : ""}${style.name}`;
       categoryLabelEl.textContent = style.choice ? `${categoryName(style.category)} · 看完后回复“${style.choice}”` : categoryName(style.category);
-      descriptionEl.textContent = media.color ? style.description.replace("绿色逐章填充", `按 ${media.color} 逐章填充`) : style.description;
+      descriptionEl.textContent = style.description;
       bestForEl.textContent = style.bestFor;
-      document.querySelector(".stage").style.aspectRatio = style.category === "progress" ? "auto" : style.aspectRatio || "16 / 9";
-      document.querySelector(".main").classList.toggle("is-progress", style.category === "progress");
-      document.querySelector(".stage").classList.toggle("is-progress", style.category === "progress");
-      document.querySelector(".stage").style.background = style.category === "progress" ? progressPreviewBg.value : "";
-      video.controls = style.category !== "progress";
-      downloadOverlay.hidden = !style.download;
-      if (style.download) downloadOverlay.href = media.download;
-      else downloadOverlay.removeAttribute("href");
-      downloadOverlay.removeAttribute("aria-disabled");
-      progressControls.hidden = style.category !== "progress";
-      progressApply.disabled = false;
-      const currentColor = media.color || style.defaultColor || progressColor;
-      progressPicker.value = currentColor;
-      progressHex.value = currentColor;
-      progressFontControl.hidden = !style.fontSize;
-      progressFontSize.value = media.fontSize || style.fontSize || 25;
-      progressStatus.textContent = media.color ? `已应用 ${media.color}${media.fontSize ? " · "+media.fontSize+" px" : ""}` : "";
 
       error.hidden = true;
       loading.hidden = false;
@@ -978,8 +872,8 @@
       } else {
         staticPreview.hidden = true;
         video.hidden = false;
-        video.poster = media.poster;
-        video.src = media.src || media.preview;
+        video.poster = style.poster;
+        video.src = style.src;
         video.load();
       }
 
@@ -993,60 +887,7 @@
         const playPromise = video.play();
         if (playPromise) playPromise.catch(() => {});
       }
-      if (style.category === "progress" && !progressVariants.has(id) && !style.defaultColor && progressColor !== "#acd95d") {
-        queueMicrotask(() => {if (activeId === id) applyProgressColor();});
-      }
     };
-
-    progressPicker.addEventListener("input", () => { progressHex.value = progressPicker.value; });
-    progressHex.addEventListener("input", () => {
-      if (/^#[0-9a-fA-F]{6}$/.test(progressHex.value)) progressPicker.value = progressHex.value;
-    });
-    async function applyProgressColor() {
-      if (progressApply.disabled) return;
-      const color = progressHex.value.trim().toLowerCase();
-      if (!/^#[0-9a-f]{6}$/.test(color)) {
-        progressStatus.textContent = "请输入完整色号，例如 #3366ff";
-        return;
-      }
-      const id = activeId;
-      const style = styles.find(item => item.id === id);
-      const fontSize = style.fontSize ? Number(progressFontSize.value) : undefined;
-      if (style.fontSize && (!Number.isInteger(fontSize) || fontSize < 18 || fontSize > 72)) {progressStatus.textContent = "字号请输入 18–72 之间的整数"; return;}
-      const request = ++colorRequest;
-      progressApply.disabled = true;
-      progressStatus.textContent = "正在生成所选设置的样片…";
-      downloadOverlay.removeAttribute("href");
-      downloadOverlay.setAttribute("aria-disabled", "true");
-      try {
-        const response = await fetch("/api/progress-color", {method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({color,styleId:id,fontSize})});
-        const data = await response.json();
-        if (!response.ok) throw new Error(data.error || "生成失败");
-        if (request !== colorRequest || id !== activeId) return;
-        progressColor = color;
-        progressVariants.set(id,data);
-        try {localStorage.setItem("ll-progress-fill-color",color);} catch {}
-        selectStyle(id,true);
-      } catch (error) {
-        if (request !== colorRequest || id !== activeId) return;
-        progressStatus.textContent = "生成失败：" + error.message + "。";
-        const previous = progressVariants.get(id) || styles.find(style => style.id === id);
-        downloadOverlay.href = previous.download;
-        downloadOverlay.removeAttribute("aria-disabled");
-      } finally {
-        if (id === activeId) progressApply.disabled = false;
-      }
-    }
-    progressApply.addEventListener("click",applyProgressColor);
-    document.querySelector("#play-progress").addEventListener("click", () => {
-      if (video.paused) video.play().catch(() => {});
-      else video.pause();
-    });
-    document.querySelector("#restart-progress").addEventListener("click", () => {
-      video.currentTime = 0;
-      video.play().catch(() => {});
-    });
-    progressHex.addEventListener("keydown",event => {if(event.key === "Enter") {event.preventDefault();event.stopPropagation();applyProgressColor();}});
 
     video.addEventListener("loadeddata", () => {
       loading.hidden = true;
@@ -1084,7 +925,7 @@
     });
 
     document.addEventListener("keydown", (event) => {
-      if (event.target.matches("input, button, textarea")) return;
+      if (event.target === search) return;
       const sequence = visibleStyles.length ? visibleStyles : baseStyles;
       const currentIndex = sequence.findIndex((item) => item.id === activeId);
       if (event.key === "ArrowDown" || event.key === "ArrowRight") {

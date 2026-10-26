@@ -28,8 +28,4 @@ http://127.0.0.1:4173/index.html?category=transition
 
 用户不需要记模板内部名称，看完后只需回复“样式 A”或“样式 B”。
 
-章节进度条入口为 `http://127.0.0.1:4173/index.html?category=progress`，由独立 `ll-video-progress` Skill 负责。内置“朦胧白底”和“人物领走”两款，均可改 RGB 填充色。播放器使用透明 WebM，下载为窄条 ProRes 4444 MOV，当前内置样片均为 8 秒；全长素材按用户 SRT 正式生成。
-
-要改色，从项目根目录运行 `node skills/ll-video-progress/scripts/playground_server.mjs`，普通静态 HTTP 服务只支持观看默认样片。颜色生成后播放器、缩略图与下载文件一致。
-
-Video Motion 的入口是 `http://127.0.0.1:4173/index.html?mode=motion`，只展示 36 个短动效模板。其 `scripts/playground_server.mjs` 返回这个入口与章节过渡选样链接；进度条实现已迁出 Video Motion。两者共用项目 `scripts/playground_server.mjs` 提供的页面服务，不共享 Skill 的制作流程。
+章节进度条及五款样式、配色与字号设置、透明 MOV 导出已迁移到独立仓库 [ll-video-progress](https://github.com/liuliu-66-create/ll-video-progress)。该仓库自带专用 Playground，默认端口 4174；本页面只展示 Video Motion 的 36 个短动效模板。
