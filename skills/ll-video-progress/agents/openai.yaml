@@ -1,0 +1,6 @@
+interface:
+  display_name: "LL Video Progress"
+  short_description: "先根据字幕确认分段，再选样式，生成可换色的透明章节进度条"
+  default_prompt: "使用 $ll-video-progress 根据我的 SRT 字幕提出章节分段，确认后打开 Playground 选样式，再生成透明进度条。"
+policy:
+  allow_implicit_invocation: true

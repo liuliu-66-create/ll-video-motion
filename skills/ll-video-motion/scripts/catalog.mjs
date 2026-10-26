@@ -135,12 +135,14 @@ const runCli = async () => {
   if (args.includes('--check')) {
     const rootSource = await readFile(resolve(catalog.projectRoot, 'src', 'Root.tsx'), 'utf8');
     const playgroundSource = await readFile(resolve(catalog.projectRoot, 'playground', 'index.html'), 'utf8');
-    const displayRows = [...playgroundSource.matchAll(/\{id:"([^"]+)", category:"[^"]+"[^\n]*?code:"([^"]+)"[^\n]*?src:"([^"]+)"[^\n]*?poster:"([^"]+)"/g)]
-      .map(([, styleId, code, sample, poster]) => ({
-        templateId: code.startsWith('chapter-transition /') ? styleId : code.split(' / ')[0],
+    const displayRows = [...playgroundSource.matchAll(/\{id:"([^"]+)", category:"([^"]+)"[^\n]*?code:"([^"]+)"[^\n]*?src:"([^"]+)"[^\n]*?poster:"([^"]+)"([^\n]*)/g)]
+      .map(([, styleId, category, code, sample, poster, rest]) => ({
+        templateId: category === 'progress' || code.startsWith('chapter-transition /') ? styleId : code.split(' / ')[0],
+        category,
         sample,
         poster,
-      }));
+        download: rest.match(/download:"([^"]+)"/)?.[1],
+      })).filter(row => row.category !== 'progress');
     const catalogIds = new Set(catalog.styles.map((style) => style.templateId));
     const displayIds = displayRows.map((row) => row.templateId);
     const unregisteredDisplayItems = displayIds.filter((id) => !catalogIds.has(id));
@@ -163,9 +165,10 @@ const runCli = async () => {
       }
     }
     for (const row of displayRows) {
-      for (const relativePath of [row.sample, row.poster]) {
+      for (const relativePath of [row.sample, row.poster, row.download].filter(Boolean)) {
         if (!existsSync(resolve(catalog.projectRoot, 'playground', relativePath))) missing.push(`playground:${relativePath}`);
       }
+      if (row.category === 'progress' && !row.download) missing.push(`playground:${row.templateId}:transparent-download`);
     }
     const duplicateStyleIds = catalog.styles
       .map((style) => style.styleId)

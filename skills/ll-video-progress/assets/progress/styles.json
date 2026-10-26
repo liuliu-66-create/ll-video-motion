@@ -1,0 +1,78 @@
+{
+  "version": 2,
+  "styles": [
+    {
+      "id": "soft-white-green",
+      "name": "朦胧白底",
+      "status": "validated",
+      "previewImage": "soft-white-green.png",
+      "sampleVideo": "soft-white-green.mov",
+      "description": "半透明白色底、绿色逐章填充、白色描边文字、竖线分隔，无斜线。",
+      "defaultWidth": 1440,
+      "defaultCanvasHeight": 1080,
+      "defaultBarHeight": 64,
+      "fontSizeRatio": 0.59375,
+      "baseColor": [
+        255,
+        255,
+        255
+      ],
+      "baseOpacity": 0.431372549,
+      "edgeOpacityRatio": 0.772727273,
+      "fillColor": [
+        172,
+        217,
+        93
+      ],
+      "fillOpacity": 1,
+      "textColor": [
+        255,
+        255,
+        255
+      ],
+      "outlineColor": [
+        50,
+        53,
+        57
+      ],
+      "previewBackground": "#F2E9DC"
+    },
+    {
+      "id": "walking-leading",
+      "name": "人物领走",
+      "status": "validated",
+      "previewImage": "walking-leading.png",
+      "sampleVideo": "walking-leading.mov",
+      "description": "沿用直角半透明白底横条，等高人物在前沿领走，条外最多露出半个条高。",
+      "defaultWidth": 1440,
+      "defaultCanvasHeight": 1080,
+      "defaultBarHeight": 64,
+      "fontSizeRatio": 0.59375,
+      "baseColor": [
+        255,
+        255,
+        255
+      ],
+      "baseOpacity": 0.431372549,
+      "edgeOpacityRatio": 0.772727273,
+      "fillColor": [
+        172,
+        217,
+        93
+      ],
+      "fillOpacity": 1,
+      "textColor": [
+        255,
+        255,
+        255
+      ],
+      "outlineColor": [
+        50,
+        53,
+        57
+      ],
+      "previewBackground": "#F2E9DC",
+      "character": "liuliu"
+    }
+  ]
+}

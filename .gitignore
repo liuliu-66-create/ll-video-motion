@@ -11,6 +11,8 @@ editor-prototype/jobs/
 
 # Local runtime configuration
 skills/ll-video-motion/runtime.local.json
+skills/ll-video-progress/runtime.local.json
+skills/**/__pycache__/
 .env
 .env.*
 
